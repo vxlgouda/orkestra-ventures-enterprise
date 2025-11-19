@@ -2,6 +2,7 @@ import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { trpc } from "@/lib/trpc";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -12,11 +13,28 @@ export default function Contact() {
     message: "",
   });
 
+  const submitContact = trpc.contacts.submit.useMutation({
+    onSuccess: () => {
+      toast.success("Message sent successfully! We'll get back to you soon.");
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    },
+    onError: (error) => {
+      toast.error("Failed to send message. Please try again.");
+      console.error("Contact form submission error:", error);
+    },
+  });
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, this would send the form data to a server
-    toast.success("Message sent successfully! We'll get back to you soon.");
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    
+    // Submit to database
+    submitContact.mutate({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone || undefined,
+      subject: formData.subject,
+      message: formData.message,
+    });
   };
 
   const handleChange = (
@@ -74,10 +92,10 @@ export default function Contact() {
                   <div>
                     <h3 className="text-h4 mb-2">Email</h3>
                     <a
-                      href="mailto:info@orkestraventures.com"
+                      href="mailto:info@orkestra.ventures"
                       className="text-body text-[oklch(0.55_0.18_260)] hover:underline"
                     >
-                      info@orkestraventures.com
+                      info@orkestra.ventures
                     </a>
                   </div>
                 </div>
@@ -92,7 +110,7 @@ export default function Contact() {
                       href="tel:+20123456789"
                       className="text-body text-[oklch(0.55_0.18_260)] hover:underline"
                     >
-                      +20 123 456 789
+                      +201114156734
                     </a>
                   </div>
                 </div>
@@ -179,7 +197,7 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
-                    placeholder="+20 123 456 789"
+                    placeholder="+201114156734"
                   />
                 </div>
 
@@ -228,9 +246,19 @@ export default function Contact() {
 
                 <Button
                   type="submit"
+                  disabled={submitContact.isPending}
                   className="btn-primary w-full inline-flex items-center justify-center gap-2"
                 >
-                  Send Message <Send className="h-5 w-5" />
+                  {submitContact.isPending ? (
+                    <>
+                      <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message <Send className="h-5 w-5" />
+                    </>
+                  )}
                 </Button>
               </form>
             </div>

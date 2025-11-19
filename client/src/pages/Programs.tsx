@@ -1,4 +1,4 @@
-import { CheckCircle, Clock, Users, Award, ArrowRight } from "lucide-react";
+import { Clock, Users, CheckCircle, Award, ArrowRight, Briefcase, Target, DollarSign, FileText, Globe } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Programs() {
@@ -515,6 +515,256 @@ export default function Programs() {
                 15-20 hours per week including class time, projects, and
                 mentorship sessions.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mentorship Program */}
+      <section id="mentorship" className="section-padding section-bg-light">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="badge-accent mb-4 inline-block">
+                Mentorship
+              </span>
+              <h2 className="text-h1 mb-6">Expert Mentorship Program</h2>
+              <p className="text-body-large text-[oklch(0.4_0.02_240)]">
+                Connect with industry leaders and AI experts who guide your journey from learning to career success.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <div className="card-elevated">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-[oklch(0.55_0.18_260_/_0.1)] flex items-center justify-center flex-shrink-0">
+                    <Users className="h-6 w-6 text-[oklch(0.55_0.18_260)]" />
+                  </div>
+                  <div>
+                    <h3 className="text-h3 mb-2">1:5 Mentorship Ratio</h3>
+                    <p className="text-body text-[oklch(0.4_0.02_240)]">
+                      Every mentor works with maximum 5 participants, ensuring personalized attention and meaningful relationships.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card-elevated">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-[oklch(0.7_0.15_70_/_0.1)] flex items-center justify-center flex-shrink-0">
+                    <CheckCircle className="h-6 w-6 text-[oklch(0.7_0.15_70)]" />
+                  </div>
+                  <div>
+                    <h3 className="text-h3 mb-2">Industry Experts</h3>
+                    <p className="text-body text-[oklch(0.4_0.02_240)]">
+                      Learn from professionals working at leading global AI companies and successful AI startups.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card-elevated">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-[oklch(0.65_0.12_180_/_0.1)] flex items-center justify-center flex-shrink-0">
+                    <Clock className="h-6 w-6 text-[oklch(0.65_0.12_180)]" />
+                  </div>
+                  <div>
+                    <h3 className="text-h3 mb-2">Weekly Sessions</h3>
+                    <p className="text-body text-[oklch(0.4_0.02_240)]">
+                      Regular one-on-one and group mentorship sessions throughout the 16-week program and beyond.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card-elevated">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-[oklch(0.55_0.18_260_/_0.1)] flex items-center justify-center flex-shrink-0">
+                    <Award className="h-6 w-6 text-[oklch(0.55_0.18_260)]" />
+                  </div>
+                  <div>
+                    <h3 className="text-h3 mb-2">Career Guidance</h3>
+                    <p className="text-body text-[oklch(0.4_0.02_240)]">
+                      Get personalized advice on career paths, skill development, and navigating the global AI job market.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="card-standard">
+              <h3 className="text-h3 mb-4">What Mentors Provide</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                  <span className="text-body">Technical code reviews and architecture guidance</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                  <span className="text-body">Business strategy and product development advice</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                  <span className="text-body">Career planning and job search strategies</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                  <span className="text-body">Industry insights and networking opportunities</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                  <span className="text-body">Portfolio and resume optimization</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career Support */}
+      <section id="career" className="section-padding">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="badge-accent mb-4 inline-block">
+                Career Services
+              </span>
+              <h2 className="text-h1 mb-6">Career Support & Placement</h2>
+              <p className="text-body-large text-[oklch(0.4_0.02_240)]">
+                Comprehensive career services to help you land your dream AI role in global companies.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div className="card-data">
+                <Briefcase className="h-12 w-12 mx-auto mb-4 text-[oklch(0.55_0.18_260)]" />
+                <div className="text-4xl font-bold text-[oklch(0.55_0.18_260)] mb-2 font-data">
+                  100+
+                </div>
+                <div className="text-body-small text-[oklch(0.4_0.02_240)]">
+                  Partner Companies
+                </div>
+              </div>
+
+              <div className="card-data">
+                <Target className="h-12 w-12 mx-auto mb-4 text-[oklch(0.7_0.15_70)]" />
+                <div className="text-4xl font-bold text-[oklch(0.7_0.15_70)] mb-2 font-data">
+                  85%
+                </div>
+                <div className="text-body-small text-[oklch(0.4_0.02_240)]">
+                  Placement Rate
+                </div>
+              </div>
+
+              <div className="card-data">
+                <DollarSign className="h-12 w-12 mx-auto mb-4 text-[oklch(0.65_0.12_180)]" />
+                <div className="text-4xl font-bold text-[oklch(0.65_0.12_180)] mb-2 font-data">
+                  $60K+
+                </div>
+                <div className="text-body-small text-[oklch(0.4_0.02_240)]">
+                  Average Starting Salary
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="card-elevated">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-[oklch(0.55_0.18_260_/_0.1)] flex items-center justify-center flex-shrink-0">
+                    <FileText className="h-6 w-6 text-[oklch(0.55_0.18_260)]" />
+                  </div>
+                  <div>
+                    <h3 className="text-h3 mb-2">Resume & Portfolio Building</h3>
+                    <p className="text-body text-[oklch(0.4_0.02_240)]">
+                      Professional resume writing, GitHub portfolio optimization, and personal branding for the global AI market.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card-elevated">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-[oklch(0.7_0.15_70_/_0.1)] flex items-center justify-center flex-shrink-0">
+                    <Target className="h-6 w-6 text-[oklch(0.7_0.15_70)]" />
+                  </div>
+                  <div>
+                    <h3 className="text-h3 mb-2">Interview Preparation</h3>
+                    <p className="text-body text-[oklch(0.4_0.02_240)]">
+                      Mock technical interviews, behavioral coaching, and preparation for AI-specific interview questions and coding challenges.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card-elevated">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-[oklch(0.65_0.12_180_/_0.1)] flex items-center justify-center flex-shrink-0">
+                    <Briefcase className="h-6 w-6 text-[oklch(0.65_0.12_180)]" />
+                  </div>
+                  <div>
+                    <h3 className="text-h3 mb-2">Direct Company Connections</h3>
+                    <p className="text-body text-[oklch(0.4_0.02_240)]">
+                      Access to our network of 100+ partner companies actively hiring AI talent, with direct referrals for top performers.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card-elevated">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-[oklch(0.55_0.18_260_/_0.1)] flex items-center justify-center flex-shrink-0">
+                    <Globe className="h-6 w-6 text-[oklch(0.55_0.18_260)]" />
+                  </div>
+                  <div>
+                    <h3 className="text-h3 mb-2">Global Opportunities</h3>
+                    <p className="text-body text-[oklch(0.4_0.02_240)]">
+                      Support for international job applications, visa guidance, and connections to companies in UAE, Europe, and North America.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 card-standard">
+              <h3 className="text-h3 mb-4">Career Services Include</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">LinkedIn profile optimization</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">Salary negotiation coaching</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">Job search strategy sessions</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">Technical assessment prep</span>
+                  </li>
+                </ul>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">Company research and targeting</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">Networking event access</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">Alumni network connections</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">Ongoing career support</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

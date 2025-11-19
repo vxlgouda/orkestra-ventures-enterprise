@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Navigation from "./components/Navigation";
@@ -14,13 +14,21 @@ import Apply from "./pages/Apply";
 import Contact from "./pages/Contact";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminApplications from "./pages/AdminApplications";
+import AdminContacts from "./pages/AdminContacts";
+import AdminNewsletter from "./pages/AdminNewsletter";
+import AdminSettings from "./pages/AdminSettings";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import { AdminAuthProvider } from "./contexts/AdminAuthContext";
 
 function Router() {
-  // make sure to consider if you need authentication for certain routes
+  const [location] = useLocation();
+  const isAdminRoute = location.startsWith('/admin');
+  
   return (
     <>
-      <Navigation />
+      {!isAdminRoute && <Navigation />}
       <Switch>
         <Route path={"/"} component={Home} />
         <Route path={"/about"} component={About} />
@@ -28,13 +36,19 @@ function Router() {
         <Route path={"/partners"} component={Partners} />
         <Route path={"/apply"} component={Apply} />
         <Route path={"/contact"} component={Contact} />
-        <Route path={"/admin/login"} component={AdminLogin} />
-        <Route path={"/admin/dashboard"} component={AdminDashboard} />
+        <Route path="/admin/login" component={AdminLogin} />
+        <Route path="/admin/dashboard" component={AdminDashboard} />
+        <Route path="/admin/applications" component={AdminApplications} />
+        <Route path="/admin/contacts" component={AdminContacts} />
+        <Route path="/admin/newsletter" component={AdminNewsletter} />
+        <Route path="/admin/settings" component={AdminSettings} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/terms-of-service" component={TermsOfService} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />
       </Switch>
-      <Footer />
+      {!isAdminRoute && <Footer />}
     </>
   );
 }

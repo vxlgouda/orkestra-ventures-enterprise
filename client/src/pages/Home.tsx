@@ -426,7 +426,7 @@ export default function Home() {
               </Link>
             </div>
             <p className="text-body-small text-[oklch(0.7_0.005_240)] mt-8">
-              Application Deadline: Rolling Admissions • Program Start: Q2 2025
+              Application Deadline: Rolling Admissions • Program Start: Q2 2026
             </p>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
-import { createApplication, createContact, createNewsletterSubscriber, getAllApplications, getAllContacts, getAllNewsletterSubscribers } from "./db";
+import { createApplication, createContact, createNewsletterSubscriber, getAllApplications, getAllContacts, getAllNewsletterSubscribers, updateApplicationStatus, deleteApplication, updateContactStatus, deleteContact, unsubscribeNewsletter } from "./db";
 import { notifyOwner } from "./_core/notification";
 
 export const appRouter = router({
@@ -72,6 +72,76 @@ export const appRouter = router({
           content: `${input.name} (${input.email}) sent a message: ${input.subject}`,
         });
         
+        return { success: true };
+      }),
+  }),
+
+  // Admin queries and mutations
+  admin: router({
+    getStats: publicProcedure.query(async () => {
+      const applications = await getAllApplications();
+      const contacts = await getAllContacts();
+      const newsletterSubs = await getAllNewsletterSubscribers();
+      
+      return {
+        totalApplications: applications.length,
+        totalContacts: contacts.length,
+        totalNewsletter: newsletterSubs.length,
+        recentApplications: applications.slice(0, 5),
+        recentContacts: contacts.slice(0, 5),
+      };
+    }),
+    
+    getAllApplications: publicProcedure.query(async () => {
+      return await getAllApplications();
+    }),
+    
+    getAllContacts: publicProcedure.query(async () => {
+      return await getAllContacts();
+    }),
+    
+    getAllNewsletter: publicProcedure.query(async () => {
+      return await getAllNewsletterSubscribers();
+    }),
+    
+    updateApplicationStatus: publicProcedure
+      .input(z.object({
+        id: z.number(),
+        status: z.enum(["pending", "reviewing", "accepted", "rejected"]),
+      }))
+      .mutation(async ({ input }) => {
+        await updateApplicationStatus(input.id, input.status);
+        return { success: true };
+      }),
+    
+    deleteApplication: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        await deleteApplication(input.id);
+        return { success: true };
+      }),
+    
+    updateContactStatus: publicProcedure
+      .input(z.object({
+        id: z.number(),
+        status: z.enum(["new", "in_progress", "resolved"]),
+      }))
+      .mutation(async ({ input }) => {
+        await updateContactStatus(input.id, input.status);
+        return { success: true };
+      }),
+    
+    deleteContact: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        await deleteContact(input.id);
+        return { success: true };
+      }),
+    
+    unsubscribeNewsletter: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        await unsubscribeNewsletter(input.id);
         return { success: true };
       }),
   }),

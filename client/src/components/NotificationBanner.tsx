@@ -173,7 +173,7 @@ export function NotificationManager() {
     {
       id: "cohort-2025-q2",
       type: "announcement",
-      message: "Applications now open for Q2 2025 cohort! Limited spots available.",
+      message: "Applications now open for Q2 2026 cohort! Limited spots available.",
       link: {
         text: "Apply Now",
         href: "/apply",

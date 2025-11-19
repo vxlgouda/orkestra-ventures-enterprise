@@ -172,3 +172,63 @@ export async function getAllNewsletterSubscribers() {
 
   return await db.select().from(newsletterSubscribers).where(eq(newsletterSubscribers.isActive, 1)).orderBy(newsletterSubscribers.createdAt);
 }
+
+/**
+ * Update application status
+ */
+export async function updateApplicationStatus(id: number, status: "pending" | "reviewing" | "accepted" | "rejected") {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db.update(applications).set({ status }).where(eq(applications.id, id));
+}
+
+/**
+ * Delete application
+ */
+export async function deleteApplication(id: number) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db.delete(applications).where(eq(applications.id, id));
+}
+
+/**
+ * Update contact status
+ */
+export async function updateContactStatus(id: number, status: "new" | "in_progress" | "resolved") {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db.update(contacts).set({ status }).where(eq(contacts.id, id));
+}
+
+/**
+ * Delete contact
+ */
+export async function deleteContact(id: number) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db.delete(contacts).where(eq(contacts.id, id));
+}
+
+/**
+ * Unsubscribe from newsletter
+ */
+export async function unsubscribeNewsletter(id: number) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db.update(newsletterSubscribers).set({ isActive: 0, unsubscribedAt: new Date() }).where(eq(newsletterSubscribers.id, id));
+}

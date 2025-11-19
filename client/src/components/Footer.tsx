@@ -87,36 +87,36 @@ export default function Footer() {
             <h3 className="text-h4 mb-6">Programs</h3>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/programs#technical"
                   className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
                 >
                   Technical AI Track
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/programs#business"
                   className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
                 >
                   Business AI Track
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/programs#mentorship"
                   className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
                 >
                   Mentorship Program
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/programs#career"
                   className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
                 >
                   Career Support
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -134,10 +134,10 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-[oklch(0.7_0.15_70)] flex-shrink-0" />
                 <a
-                  href="mailto:info@orkestraventures.com"
+                  href="mailto:info@orkestra.ventures"
                   className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
                 >
-                  info@orkestraventures.com
+                  info@orkestra.ventures
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -146,7 +146,7 @@ export default function Footer() {
                   href="tel:+20123456789"
                   className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
                 >
-                  +20 123 456 789
+                  +201114156734
                 </a>
               </li>
             </ul>
@@ -161,18 +161,12 @@ export default function Footer() {
               All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a
-                href="#"
-                className="text-body-small text-[oklch(0.6_0.005_240)] hover:text-white transition-colors"
-              >
+              <Link href="/privacy-policy" className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-[oklch(0.55_0.18_260)] transition-colors">
                 Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-body-small text-[oklch(0.6_0.005_240)] hover:text-white transition-colors"
-              >
+              </Link>
+              <Link href="/terms-of-service" className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-[oklch(0.55_0.18_260)] transition-colors">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>

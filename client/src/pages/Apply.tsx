@@ -2,70 +2,90 @@ import { CheckCircle, Upload, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { trpc } from "@/lib/trpc";
 
 export default function Apply() {
   const [formData, setFormData] = useState({
     // Personal Information
-    firstName: "",
-    lastName: "",
+    fullName: "",
     email: "",
     phone: "",
-    dateOfBirth: "",
-    nationality: "",
+    country: "",
     city: "",
     
-    // Education
-    degree: "",
-    university: "",
-    graduationYear: "",
-    major: "",
-    
-    // Professional
-    currentEmployer: "",
-    jobTitle: "",
-    yearsExperience: "",
-    industry: "",
-    
     // Program Selection
-    track: "",
-    startDate: "",
-    commitment: false,
+    track: "" as "technical" | "business" | "",
+    careerPath: "" as "egypt" | "uae" | "international" | "entrepreneurship" | "",
     
-    // Additional
+    // Background
+    education: "",
+    currentRole: "",
+    yearsExperience: "",
+    technicalBackground: "",
+    
+    // Application Details
     motivation: "",
     goals: "",
-    hearAboutUs: "",
+    linkedinUrl: "",
+    portfolioUrl: "",
+  });
+
+  const submitApplication = trpc.applications.submit.useMutation({
+    onSuccess: () => {
+      toast.success(
+        "Application submitted successfully! We'll review your application and get back to you within 5 business days."
+      );
+      // Reset form
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        country: "",
+        city: "",
+        track: "",
+        careerPath: "",
+        education: "",
+        currentRole: "",
+        yearsExperience: "",
+        technicalBackground: "",
+        motivation: "",
+        goals: "",
+        linkedinUrl: "",
+        portfolioUrl: "",
+      });
+    },
+    onError: (error) => {
+      toast.error("Failed to submit application. Please try again.");
+      console.error("Application submission error:", error);
+    },
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, this would send the form data to a server
-    toast.success(
-      "Application submitted successfully! We'll review your application and get back to you within 5 business days."
-    );
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      dateOfBirth: "",
-      nationality: "",
-      city: "",
-      degree: "",
-      university: "",
-      graduationYear: "",
-      major: "",
-      currentEmployer: "",
-      jobTitle: "",
-      yearsExperience: "",
-      industry: "",
-      track: "",
-      startDate: "",
-      commitment: false,
-      motivation: "",
-      goals: "",
-      hearAboutUs: "",
+    
+    // Validate required fields
+    if (!formData.track || !formData.careerPath) {
+      toast.error("Please select both a track and career path");
+      return;
+    }
+
+    // Submit to database
+    submitApplication.mutate({
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      country: formData.country,
+      city: formData.city,
+      track: formData.track as "technical" | "business",
+      careerPath: formData.careerPath as "egypt" | "uae" | "international" | "entrepreneurship",
+      education: formData.education,
+      currentRole: formData.currentRole || undefined,
+      yearsExperience: formData.yearsExperience ? parseInt(formData.yearsExperience) : undefined,
+      technicalBackground: formData.technicalBackground || undefined,
+      motivation: formData.motivation,
+      goals: formData.goals,
+      linkedinUrl: formData.linkedinUrl || undefined,
+      portfolioUrl: formData.portfolioUrl || undefined,
     });
   };
 
@@ -173,29 +193,15 @@ export default function Apply() {
                     Personal Information
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
+                    <div className="md:col-span-2">
                       <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        First Name *
+                        Full Name *
                       </label>
                       <input
                         type="text"
-                        name="firstName"
+                        name="fullName"
                         required
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        Last Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="lastName"
-                        required
-                        value={formData.lastName}
+                        value={formData.fullName}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
                       />
@@ -231,33 +237,19 @@ export default function Apply() {
 
                     <div>
                       <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        Date of Birth *
+                        Country *
                       </label>
                       <input
-                        type="date"
-                        name="dateOfBirth"
+                        type="text"
+                        name="country"
                         required
-                        value={formData.dateOfBirth}
+                        value={formData.country}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        Nationality *
-                      </label>
-                      <input
-                        type="text"
-                        name="nationality"
-                        required
-                        value={formData.nationality}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
-                      />
-                    </div>
-
-                    <div className="md:col-span-2">
                       <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
                         City *
                       </label>
@@ -273,154 +265,15 @@ export default function Apply() {
                   </div>
                 </div>
 
-                {/* Education */}
-                <div>
-                  <h3 className="text-h3 mb-6 pb-3 border-b border-[oklch(0.9_0.005_240)]">
-                    Education
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        Highest Degree *
-                      </label>
-                      <select
-                        name="degree"
-                        required
-                        value={formData.degree}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
-                      >
-                        <option value="">Select degree</option>
-                        <option value="bachelor">Bachelor's Degree</option>
-                        <option value="master">Master's Degree</option>
-                        <option value="phd">PhD</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        University *
-                      </label>
-                      <input
-                        type="text"
-                        name="university"
-                        required
-                        value={formData.university}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        Graduation Year *
-                      </label>
-                      <input
-                        type="number"
-                        name="graduationYear"
-                        required
-                        min="1990"
-                        max="2030"
-                        value={formData.graduationYear}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        Major/Field of Study *
-                      </label>
-                      <input
-                        type="text"
-                        name="major"
-                        required
-                        value={formData.major}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Professional Experience */}
-                <div>
-                  <h3 className="text-h3 mb-6 pb-3 border-b border-[oklch(0.9_0.005_240)]">
-                    Professional Experience
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        Current Employer *
-                      </label>
-                      <input
-                        type="text"
-                        name="currentEmployer"
-                        required
-                        value={formData.currentEmployer}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        Job Title *
-                      </label>
-                      <input
-                        type="text"
-                        name="jobTitle"
-                        required
-                        value={formData.jobTitle}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        Years of Experience *
-                      </label>
-                      <select
-                        name="yearsExperience"
-                        required
-                        value={formData.yearsExperience}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
-                      >
-                        <option value="">Select experience</option>
-                        <option value="0-2">0-2 years</option>
-                        <option value="2-5">2-5 years</option>
-                        <option value="5-10">5-10 years</option>
-                        <option value="10+">10+ years</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        Industry *
-                      </label>
-                      <input
-                        type="text"
-                        name="industry"
-                        required
-                        value={formData.industry}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
-                      />
-                    </div>
-                  </div>
-                </div>
-
                 {/* Program Selection */}
                 <div>
                   <h3 className="text-h3 mb-6 pb-3 border-b border-[oklch(0.9_0.005_240)]">
                     Program Selection
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="md:col-span-2">
+                    <div>
                       <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        Preferred Track *
+                        Track *
                       </label>
                       <select
                         name="track"
@@ -430,35 +283,103 @@ export default function Apply() {
                         className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
                       >
                         <option value="">Select track</option>
-                        <option value="technical">AI Technical Track</option>
-                        <option value="business">AI Business Track</option>
+                        <option value="technical">Technical Track</option>
+                        <option value="business">Business Track</option>
                       </select>
                     </div>
 
-                    <div className="md:col-span-2">
+                    <div>
                       <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        Preferred Start Date *
+                        Career Path *
                       </label>
                       <select
-                        name="startDate"
+                        name="careerPath"
                         required
-                        value={formData.startDate}
+                        value={formData.careerPath}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
                       >
-                        <option value="">Select start date</option>
-                        <option value="march-2025">March 2025</option>
-                        <option value="june-2025">June 2025</option>
-                        <option value="september-2025">September 2025</option>
+                        <option value="">Select career path</option>
+                        <option value="egypt">Egypt Career Path</option>
+                        <option value="uae">UAE Career Path</option>
+                        <option value="international">International Career Path</option>
+                        <option value="entrepreneurship">Entrepreneurship Path</option>
                       </select>
                     </div>
                   </div>
                 </div>
 
-                {/* Motivation */}
+                {/* Background */}
                 <div>
                   <h3 className="text-h3 mb-6 pb-3 border-b border-[oklch(0.9_0.005_240)]">
-                    Tell Us About Yourself
+                    Background
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="md:col-span-2">
+                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
+                        Education *
+                      </label>
+                      <textarea
+                        name="education"
+                        required
+                        rows={3}
+                        value={formData.education}
+                        onChange={handleChange}
+                        placeholder="Describe your educational background (degree, university, major)"
+                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
+                        Current Role
+                      </label>
+                      <input
+                        type="text"
+                        name="currentRole"
+                        value={formData.currentRole}
+                        onChange={handleChange}
+                        placeholder="e.g., Software Engineer, Product Manager"
+                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
+                        Years of Experience
+                      </label>
+                      <input
+                        type="number"
+                        name="yearsExperience"
+                        min="0"
+                        max="50"
+                        value={formData.yearsExperience}
+                        onChange={handleChange}
+                        placeholder="0-50"
+                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
+                      />
+                    </div>
+
+                    <div className="md:col-span-2">
+                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
+                        Technical Background
+                      </label>
+                      <textarea
+                        name="technicalBackground"
+                        rows={3}
+                        value={formData.technicalBackground}
+                        onChange={handleChange}
+                        placeholder="Describe your technical skills, programming languages, frameworks, etc."
+                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Application Details */}
+                <div>
+                  <h3 className="text-h3 mb-6 pb-3 border-b border-[oklch(0.9_0.005_240)]">
+                    Application Details
                   </h3>
                   <div className="space-y-6">
                     <div>
@@ -468,86 +389,83 @@ export default function Apply() {
                       <textarea
                         name="motivation"
                         required
+                        rows={4}
                         value={formData.motivation}
                         onChange={handleChange}
-                        rows={5}
-                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent resize-none"
-                        placeholder="Tell us what motivates you to pursue AI and why Orkestra Ventures is the right fit for you..."
+                        placeholder="Tell us about your motivation to join our program"
+                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
                       />
                     </div>
 
                     <div>
                       <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        What are your career goals after completing the program?
-                        *
+                        What are your career goals? *
                       </label>
                       <textarea
                         name="goals"
                         required
+                        rows={4}
                         value={formData.goals}
                         onChange={handleChange}
-                        rows={5}
-                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent resize-none"
-                        placeholder="Describe your short-term and long-term career aspirations..."
+                        placeholder="Describe your short-term and long-term career goals"
+                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
                       />
                     </div>
 
-                    <div>
-                      <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
-                        How did you hear about Orkestra Ventures? *
-                      </label>
-                      <select
-                        name="hearAboutUs"
-                        required
-                        value={formData.hearAboutUs}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
-                      >
-                        <option value="">Select option</option>
-                        <option value="social-media">Social Media</option>
-                        <option value="website">Website</option>
-                        <option value="referral">Friend/Colleague Referral</option>
-                        <option value="event">Event/Workshop</option>
-                        <option value="university">University</option>
-                        <option value="other">Other</option>
-                      </select>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
+                          LinkedIn Profile
+                        </label>
+                        <input
+                          type="url"
+                          name="linkedinUrl"
+                          value={formData.linkedinUrl}
+                          onChange={handleChange}
+                          placeholder="https://linkedin.com/in/yourprofile"
+                          className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-body font-medium text-[oklch(0.2_0.05_240)] mb-2">
+                          Portfolio/Website
+                        </label>
+                        <input
+                          type="url"
+                          name="portfolioUrl"
+                          value={formData.portfolioUrl}
+                          onChange={handleChange}
+                          placeholder="https://yourportfolio.com"
+                          className="w-full px-4 py-3 rounded-lg border border-[oklch(0.9_0.005_240)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Commitment */}
-                <div className="flex items-start gap-3 p-6 bg-[oklch(0.98_0.005_240)] rounded-lg">
-                  <input
-                    type="checkbox"
-                    id="commitment"
-                    name="commitment"
-                    required
-                    checked={formData.commitment}
-                    onChange={handleChange}
-                    className="mt-1 h-5 w-5 rounded border-[oklch(0.9_0.005_240)] text-[oklch(0.55_0.18_260)] focus:ring-[oklch(0.55_0.18_260)]"
-                  />
-                  <label
-                    htmlFor="commitment"
-                    className="text-body text-[oklch(0.2_0.05_240)]"
-                  >
-                    I understand that this program requires 15-20 hours per week
-                    commitment for 16 weeks, and I am prepared to dedicate the
-                    necessary time and effort to successfully complete the
-                    program. *
-                  </label>
-                </div>
-
-                {/* Submit */}
-                <div className="pt-6">
+                {/* Submit Button */}
+                <div className="pt-6 border-t border-[oklch(0.9_0.005_240)]">
                   <Button
                     type="submit"
-                    className="btn-primary w-full inline-flex items-center justify-center gap-2"
+                    disabled={submitApplication.isPending}
+                    className="w-full md:w-auto px-8 py-4 bg-[oklch(0.55_0.18_260)] hover:bg-[oklch(0.50_0.18_260)] text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
                   >
-                    Submit Application <ArrowRight className="h-5 w-5" />
+                    {submitApplication.isPending ? (
+                      <>
+                        <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        Submit Application
+                        <ArrowRight className="w-5 h-5" />
+                      </>
+                    )}
                   </Button>
-                  <p className="text-body-small text-[oklch(0.4_0.02_240)] text-center mt-4">
-                    By submitting this application, you agree to our Terms of
-                    Service and Privacy Policy.
+                  <p className="text-body-small text-[oklch(0.4_0.02_240)] mt-4">
+                    By submitting this application, you agree to our terms and
+                    conditions and privacy policy.
                   </p>
                 </div>
               </form>
@@ -556,47 +474,55 @@ export default function Apply() {
         </div>
       </section>
 
-      {/* Requirements */}
+      {/* What Happens Next */}
       <section className="section-padding section-bg-light">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-h1 mb-6">Admission Requirements</h2>
-            <p className="text-body-large text-[oklch(0.4_0.02_240)]">
-              Ensure you meet these requirements before applying.
-            </p>
-          </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-h1 mb-6">What Happens Next?</h2>
+            <div className="space-y-6 text-left">
+              <div className="flex gap-4">
+                <CheckCircle className="w-6 h-6 text-[oklch(0.55_0.18_260)] flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-h4 mb-2">Confirmation Email</h3>
+                  <p className="text-body text-[oklch(0.4_0.02_240)]">
+                    You'll receive an email confirmation within 24 hours
+                    acknowledging receipt of your application.
+                  </p>
+                </div>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            <div className="card-standard">
-              <CheckCircle className="h-8 w-8 text-[oklch(0.65_0.12_180)] mb-4" />
-              <h3 className="text-h4 mb-2">Education</h3>
-              <p className="text-body text-[oklch(0.4_0.02_240)]">
-                Bachelor's degree or higher from an accredited institution.
-              </p>
-            </div>
+              <div className="flex gap-4">
+                <CheckCircle className="w-6 h-6 text-[oklch(0.55_0.18_260)] flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-h4 mb-2">Application Review</h3>
+                  <p className="text-body text-[oklch(0.4_0.02_240)]">
+                    Our team will carefully review your application and
+                    qualifications within 5 business days.
+                  </p>
+                </div>
+              </div>
 
-            <div className="card-standard">
-              <CheckCircle className="h-8 w-8 text-[oklch(0.65_0.12_180)] mb-4" />
-              <h3 className="text-h4 mb-2">Experience</h3>
-              <p className="text-body text-[oklch(0.4_0.02_240)]">
-                Minimum 2 years of professional work experience.
-              </p>
-            </div>
+              <div className="flex gap-4">
+                <CheckCircle className="w-6 h-6 text-[oklch(0.55_0.18_260)] flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-h4 mb-2">Interview Invitation</h3>
+                  <p className="text-body text-[oklch(0.4_0.02_240)]">
+                    If selected, you'll receive an invitation for a 30-minute
+                    video interview with our team.
+                  </p>
+                </div>
+              </div>
 
-            <div className="card-standard">
-              <CheckCircle className="h-8 w-8 text-[oklch(0.65_0.12_180)] mb-4" />
-              <h3 className="text-h4 mb-2">Language</h3>
-              <p className="text-body text-[oklch(0.4_0.02_240)]">
-                Strong English proficiency (written and spoken).
-              </p>
-            </div>
-
-            <div className="card-standard">
-              <CheckCircle className="h-8 w-8 text-[oklch(0.65_0.12_180)] mb-4" />
-              <h3 className="text-h4 mb-2">Technical (for Technical Track)</h3>
-              <p className="text-body text-[oklch(0.4_0.02_240)]">
-                Basic programming knowledge (Python preferred).
-              </p>
+              <div className="flex gap-4">
+                <CheckCircle className="w-6 h-6 text-[oklch(0.55_0.18_260)] flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-h4 mb-2">Final Decision</h3>
+                  <p className="text-body text-[oklch(0.4_0.02_240)]">
+                    You'll receive our final decision and next steps within 3
+                    days of your interview.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
