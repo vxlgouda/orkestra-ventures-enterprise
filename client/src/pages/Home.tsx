@@ -2,6 +2,7 @@ import { ArrowRight, Users, Target, Rocket, Award, TrendingUp, Globe, CheckCircl
 import { Link } from "wouter";
 
 export default function Home() {
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}

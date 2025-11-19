@@ -15,6 +15,7 @@ import Apply from "./pages/Apply";
 import Contact from "./pages/Contact";
 
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <>
       <Navigation />

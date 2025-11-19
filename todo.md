@@ -98,3 +98,12 @@
 - [x] Create notification component with dismiss functionality
 - [x] Add notification management (show/hide based on user interaction)
 - [x] Fix nested anchor tags in Footer component
+
+
+## Database Features
+- [x] Add database support to the project (upgrade to web-db-user)
+- [x] Create database schema for applications, contacts, and newsletter
+- [x] Implement API endpoints for form submissions
+- [ ] Update Apply form to submit to database
+- [ ] Update Contact form to submit to database
+- [ ] Add admin dashboard to view submissions
