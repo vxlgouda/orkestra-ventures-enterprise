@@ -55,38 +55,28 @@ export default function Footer() {
             <h3 className="text-h4 mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/about">
-                  <a className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
-                    About Us
-                  </a>
+                <Link href="/about" className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link href="/programs">
-                  <a className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
-                    Programs
-                  </a>
+                <Link href="/programs" className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
+                  Programs
                 </Link>
               </li>
               <li>
-                <Link href="/partners">
-                  <a className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
-                    Partners
-                  </a>
+                <Link href="/partners" className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
+                  Partners
                 </Link>
               </li>
               <li>
-                <Link href="/apply">
-                  <a className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
-                    Apply Now
-                  </a>
+                <Link href="/apply" className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
+                  Apply Now
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
-                  <a className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
-                    Contact
-                  </a>
+                <Link href="/contact" className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>

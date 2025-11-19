@@ -97,3 +97,4 @@
 - [x] Add custom notification banner system for announcements
 - [x] Create notification component with dismiss functionality
 - [x] Add notification management (show/hide based on user interaction)
+- [x] Fix nested anchor tags in Footer component
