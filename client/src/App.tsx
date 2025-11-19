@@ -12,6 +12,9 @@ import Programs from "./pages/Programs";
 import Partners from "./pages/Partners";
 import Apply from "./pages/Apply";
 import Contact from "./pages/Contact";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+import { AdminAuthProvider } from "./contexts/AdminAuthContext";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -25,6 +28,8 @@ function Router() {
         <Route path={"/partners"} component={Partners} />
         <Route path={"/apply"} component={Apply} />
         <Route path={"/contact"} component={Contact} />
+        <Route path={"/admin/login"} component={AdminLogin} />
+        <Route path={"/admin/dashboard"} component={AdminDashboard} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />
@@ -42,15 +47,17 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <AdminAuthProvider>
+        <ThemeProvider
+          defaultTheme="light"
+          // switchable
+        >
         <TooltipProvider>
           <Toaster />
           <Router />
         </TooltipProvider>
-      </ThemeProvider>
+        </ThemeProvider>
+      </AdminAuthProvider>
     </ErrorBoundary>
   );
 }

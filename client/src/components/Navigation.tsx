@@ -64,6 +64,9 @@ export default function Navigation() {
             <Link href="/apply" className="btn-primary">
               Apply Now
             </Link>
+            <Link href="/admin/login" className="btn-secondary">
+              Admin
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -104,6 +107,13 @@ export default function Navigation() {
                 className="btn-primary inline-block text-center mt-2"
               >
                 Apply Now
+              </Link>
+              <Link
+                href="/admin/login"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="btn-secondary inline-block text-center"
+              >
+                Admin
               </Link>
             </div>
           </div>

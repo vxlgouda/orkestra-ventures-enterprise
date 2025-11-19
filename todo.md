@@ -111,3 +111,11 @@
 
 ## Updates
 - [x] Remove notification banner from the website
+
+## Admin Control Panel
+- [x] Create admin login system with username/password authentication
+- [x] Add "Admin" button to navigation (next to Apply Now)
+- [x] Build admin dashboard with sections for applications, content, and settings
+- [ ] Create applications management page (view, filter, update status)
+- [ ] Create content management page (edit website content)
+- [ ] Create settings page (site configuration)
