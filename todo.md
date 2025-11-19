@@ -86,3 +86,7 @@
 - [ ] Deploy to production
 - [ ] Verify all pages load correctly
 - [ ] Test all forms and interactions
+
+
+## Bugs to Fix
+- [x] Fix nested anchor tags error in Navigation component (Link wrapping <a> tags)
