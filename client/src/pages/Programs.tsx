@@ -267,10 +267,8 @@ export default function Programs() {
             </div>
 
             <div className="mt-12 text-center">
-              <Link href="/apply">
-                <a className="btn-primary inline-flex items-center gap-2">
-                  Apply for Technical Track <ArrowRight className="h-5 w-5" />
-                </a>
+              <Link href="/apply" className="btn-primary inline-flex items-center gap-2">
+                Apply for Technical Track <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
           </div>
@@ -476,10 +474,8 @@ export default function Programs() {
             </div>
 
             <div className="mt-12 text-center">
-              <Link href="/apply">
-                <a className="btn-primary inline-flex items-center gap-2">
-                  Apply for Business Track <ArrowRight className="h-5 w-5" />
-                </a>
+              <Link href="/apply" className="btn-primary inline-flex items-center gap-2">
+                Apply for Business Track <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
           </div>
@@ -533,10 +529,8 @@ export default function Programs() {
               Applications are now open for our next cohort. Choose your track
               and begin your journey to becoming a global AI leader.
             </p>
-            <Link href="/apply">
-              <a className="btn-primary inline-flex items-center gap-2">
-                Apply Now <ArrowRight className="h-5 w-5" />
-              </a>
+            <Link href="/apply" className="btn-primary inline-flex items-center gap-2">
+              Apply Now <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
         </div>

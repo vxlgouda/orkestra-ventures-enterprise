@@ -206,8 +206,8 @@ export default function Partners() {
                   <span>Board advisory seat</span>
                 </li>
               </ul>
-              <Link href="/contact">
-                <a className="btn-primary w-full text-center">Contact Us</a>
+              <Link href="/contact" className="btn-primary w-full text-center">
+                Contact Us
               </Link>
             </div>
 
@@ -246,8 +246,8 @@ export default function Partners() {
                   <span>Custom training (5 seats)</span>
                 </li>
               </ul>
-              <Link href="/contact">
-                <a className="btn-primary w-full text-center">Get Started</a>
+              <Link href="/contact" className="btn-primary w-full text-center">
+                Get Started
               </Link>
             </div>
 
@@ -286,8 +286,8 @@ export default function Partners() {
                   <span>Social media recognition</span>
                 </li>
               </ul>
-              <Link href="/contact">
-                <a className="btn-secondary w-full text-center">Get Started</a>
+              <Link href="/contact" className="btn-secondary w-full text-center">
+                Get Started
               </Link>
             </div>
           </div>
@@ -329,10 +329,8 @@ export default function Partners() {
               Let's discuss how we can collaborate to build Egypt's AI talent
               ecosystem and drive innovation in your organization.
             </p>
-            <Link href="/contact">
-              <a className="btn-primary inline-flex items-center gap-2">
-                Get in Touch <ArrowRight className="h-5 w-5" />
-              </a>
+            <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
+              Get in Touch <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
         </div>

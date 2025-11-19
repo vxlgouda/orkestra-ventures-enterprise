@@ -22,13 +22,11 @@ export default function Home() {
               launch your career in Egypt, UAE, or globally.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/apply">
-                <a className="btn-primary inline-flex items-center gap-2">
-                  Apply Now <ArrowRight className="h-5 w-5" />
-                </a>
+              <Link href="/apply" className="btn-primary inline-flex items-center gap-2">
+                Apply Now <ArrowRight className="h-5 w-5" />
               </Link>
-              <Link href="/programs">
-                <a className="btn-secondary">Explore Programs</a>
+              <Link href="/programs" className="btn-secondary">
+                Explore Programs
               </Link>
             </div>
 
@@ -167,10 +165,8 @@ export default function Home() {
                   </span>
                 </li>
               </ul>
-              <Link href="/programs#technical">
-                <a className="btn-tertiary">
-                  Learn More <ArrowRight className="h-4 w-4" />
-                </a>
+              <Link href="/programs#technical" className="btn-tertiary">
+                Learn More <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
@@ -210,10 +206,8 @@ export default function Home() {
                   </span>
                 </li>
               </ul>
-              <Link href="/programs#business">
-                <a className="btn-tertiary">
-                  Learn More <ArrowRight className="h-4 w-4" />
-                </a>
+              <Link href="/programs#business" className="btn-tertiary">
+                Learn More <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -423,15 +417,11 @@ export default function Home() {
               professionals in the journey to become global AI leaders.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/apply">
-                <a className="btn-primary inline-flex items-center gap-2">
-                  Apply Now <ArrowRight className="h-5 w-5" />
-                </a>
+              <Link href="/apply" className="btn-primary inline-flex items-center gap-2">
+                Apply Now <ArrowRight className="h-5 w-5" />
               </Link>
-              <Link href="/contact">
-                <a className="bg-transparent border-2 border-white text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-white hover:text-[oklch(0.2_0.05_240)] transition-all duration-200">
-                  Contact Us
-                </a>
+              <Link href="/contact" className="bg-transparent border-2 border-white text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-white hover:text-[oklch(0.2_0.05_240)] transition-all duration-200">
+                Contact Us
               </Link>
             </div>
             <p className="text-body-small text-[oklch(0.7_0.005_240)] mt-8">

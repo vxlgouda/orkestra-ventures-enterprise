@@ -90,3 +90,4 @@
 
 ## Bugs to Fix
 - [x] Fix nested anchor tags error in Navigation component (Link wrapping <a> tags)
+- [x] Fix nested anchor tags in Home page and all other pages
