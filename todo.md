@@ -107,3 +107,7 @@
 - [ ] Update Apply form to submit to database
 - [ ] Update Contact form to submit to database
 - [ ] Add admin dashboard to view submissions
+
+
+## Updates
+- [x] Remove notification banner from the website
