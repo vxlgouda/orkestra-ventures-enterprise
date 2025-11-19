@@ -91,3 +91,9 @@
 ## Bugs to Fix
 - [x] Fix nested anchor tags error in Navigation component (Link wrapping <a> tags)
 - [x] Fix nested anchor tags in Home page and all other pages
+
+
+## New Features
+- [x] Add custom notification banner system for announcements
+- [x] Create notification component with dismiss functionality
+- [x] Add notification management (show/hide based on user interaction)
