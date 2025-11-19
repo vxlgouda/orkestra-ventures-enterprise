@@ -1,0 +1,192 @@
+import { Link } from "wouter";
+import { APP_LOGO, APP_TITLE } from "@/const";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
+
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-[oklch(0.15_0.02_240)] text-[oklch(0.9_0.005_240)]">
+      <div className="container section-padding-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* About Column */}
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <img src={APP_LOGO} alt={APP_TITLE} className="h-10 w-auto" />
+              <span className="text-lg font-semibold">{APP_TITLE}</span>
+            </div>
+            <p className="text-body-small text-[oklch(0.7_0.005_240)] mb-6">
+              Building global AI leaders from Egypt. Empowering the next
+              generation of AI professionals and entrepreneurs.
+            </p>
+            <div className="flex gap-4">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-[oklch(0.2_0.02_240)] hover:bg-[oklch(0.55_0.18_260)] transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-[oklch(0.2_0.02_240)] hover:bg-[oklch(0.55_0.18_260)] transition-colors"
+                aria-label="Twitter"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-[oklch(0.2_0.02_240)] hover:bg-[oklch(0.55_0.18_260)] transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-h4 mb-6">Quick Links</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/about">
+                  <a className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
+                    About Us
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/programs">
+                  <a className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
+                    Programs
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/partners">
+                  <a className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
+                    Partners
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/apply">
+                  <a className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
+                    Apply Now
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact">
+                  <a className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors">
+                    Contact
+                  </a>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Programs */}
+          <div>
+            <h3 className="text-h4 mb-6">Programs</h3>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
+                >
+                  Technical AI Track
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
+                >
+                  Business AI Track
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
+                >
+                  Mentorship Program
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
+                >
+                  Career Support
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-h4 mb-6">Contact Us</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <MapPin className="h-5 w-5 text-[oklch(0.7_0.15_70)] flex-shrink-0 mt-0.5" />
+                <span className="text-body-small text-[oklch(0.7_0.005_240)]">
+                  Smart Village, Cairo, Egypt
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 text-[oklch(0.7_0.15_70)] flex-shrink-0" />
+                <a
+                  href="mailto:info@orkestraventures.com"
+                  className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
+                >
+                  info@orkestraventures.com
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="h-5 w-5 text-[oklch(0.7_0.15_70)] flex-shrink-0" />
+                <a
+                  href="tel:+20123456789"
+                  className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
+                >
+                  +20 123 456 789
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-[oklch(0.2_0.02_240)]">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-body-small text-[oklch(0.6_0.005_240)]">
+              © {currentYear} Orkestra Ventures. A VXL Holding Group Initiative.
+              All rights reserved.
+            </p>
+            <div className="flex gap-6">
+              <a
+                href="#"
+                className="text-body-small text-[oklch(0.6_0.005_240)] hover:text-white transition-colors"
+              >
+                Privacy Policy
+              </a>
+              <a
+                href="#"
+                className="text-body-small text-[oklch(0.6_0.005_240)] hover:text-white transition-colors"
+              >
+                Terms of Service
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
