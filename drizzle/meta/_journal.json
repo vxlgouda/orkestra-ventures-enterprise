@@ -15,6 +15,13 @@
       "when": 1763573876537,
       "tag": "0001_mean_expediter",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1763751668468,
+      "tag": "0002_spooky_mephisto",
+      "breakpoints": true
     }
   ]
 }

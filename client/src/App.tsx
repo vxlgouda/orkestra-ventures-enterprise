@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch, useLocation } from "wouter";
+import { useEffect } from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Navigation from "./components/Navigation";
@@ -18,6 +19,11 @@ import AdminApplications from "./pages/AdminApplications";
 import AdminContacts from "./pages/AdminContacts";
 import AdminNewsletter from "./pages/AdminNewsletter";
 import AdminSettings from "./pages/AdminSettings";
+import AdminLeads from "./pages/AdminLeads";
+import AdminCohorts from "./pages/AdminCohorts";
+import AdminMentors from "./pages/AdminMentors";
+import AdminFinancials from "./pages/AdminFinancials";
+import AdminWebEditor from "./pages/AdminWebEditor";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import { AdminAuthProvider } from "./contexts/AdminAuthContext";
@@ -25,6 +31,11 @@ import { AdminAuthProvider } from "./contexts/AdminAuthContext";
 function Router() {
   const [location] = useLocation();
   const isAdminRoute = location.startsWith('/admin');
+  
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location]);
   
   return (
     <>
@@ -42,6 +53,11 @@ function Router() {
         <Route path="/admin/contacts" component={AdminContacts} />
         <Route path="/admin/newsletter" component={AdminNewsletter} />
         <Route path="/admin/settings" component={AdminSettings} />
+        <Route path="/admin/leads" component={AdminLeads} />
+        <Route path="/admin/cohorts" component={AdminCohorts} />
+        <Route path="/admin/mentors" component={AdminMentors} />
+        <Route path="/admin/financials" component={AdminFinancials} />
+        <Route path="/admin/web-editor" component={AdminWebEditor} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms-of-service" component={TermsOfService} />
         <Route path={"/404"} component={NotFound} />

@@ -165,6 +165,302 @@ export const appRouter = router({
         }
       }),
   }),
+
+  // ============================================
+  // ENTERPRISE MODULE ROUTERS
+  // ============================================
+
+  // Lead/CRM Management
+  leads: router({
+    getAll: publicProcedure.query(async () => {
+      const { getAllLeads } = await import("./db");
+      return await getAllLeads();
+    }),
+    create: publicProcedure
+      .input(z.object({
+        firstName: z.string().min(1),
+        lastName: z.string().min(1),
+        email: z.string().email(),
+        phone: z.string().optional(),
+        company: z.string().optional(),
+        source: z.enum(["website", "referral", "event", "social_media", "partner", "other"]).optional(),
+        status: z.enum(["new", "contacted", "qualified", "converted", "lost"]).optional(),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { createLead } = await import("./db");
+        return await createLead(input);
+      }),
+    update: publicProcedure
+      .input(z.object({
+        id: z.number(),
+        firstName: z.string().optional(),
+        lastName: z.string().optional(),
+        email: z.string().email().optional(),
+        phone: z.string().optional(),
+        company: z.string().optional(),
+        source: z.enum(["website", "referral", "event", "social_media", "partner", "other"]).optional(),
+        status: z.enum(["new", "contacted", "qualified", "converted", "lost"]).optional(),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { updateLead } = await import("./db");
+        const { id, ...data } = input;
+        return await updateLead(id, data);
+      }),
+    delete: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        const { deleteLead } = await import("./db");
+        return await deleteLead(input.id);
+      }),
+  }),
+
+  // Cohort Management
+  cohorts: router({
+    getAll: publicProcedure.query(async () => {
+      const { getAllCohorts } = await import("./db");
+      return await getAllCohorts();
+    }),
+    create: publicProcedure
+      .input(z.object({
+        name: z.string().min(1),
+        code: z.string().min(1),
+        startDate: z.string(),
+        endDate: z.string(),
+        capacity: z.number(),
+        enrolled: z.number().optional(),
+        status: z.enum(["planning", "recruiting", "active", "completed"]).optional(),
+        location: z.string().optional(),
+        description: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { createCohort } = await import("./db");
+        const { startDate, endDate, ...data } = input;
+        return await createCohort({
+          ...data,
+          startDate: new Date(startDate),
+          endDate: new Date(endDate),
+        });
+      }),
+    update: publicProcedure
+      .input(z.object({
+        id: z.number(),
+        name: z.string().optional(),
+        code: z.string().optional(),
+        startDate: z.string().optional(),
+        endDate: z.string().optional(),
+        capacity: z.number().optional(),
+        enrolled: z.number().optional(),
+        status: z.enum(["planning", "recruiting", "active", "completed"]).optional(),
+        location: z.string().optional(),
+        description: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { updateCohort } = await import("./db");
+        const { id, startDate, endDate, ...data } = input;
+        const updateData = {
+          ...data,
+          ...(startDate ? { startDate: new Date(startDate) } : {}),
+          ...(endDate ? { endDate: new Date(endDate) } : {}),
+        };
+        return await updateCohort(id, updateData);
+      }),
+    delete: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        const { deleteCohort } = await import("./db");
+        return await deleteCohort(input.id);
+      }),
+  }),
+
+  // Mentor Management
+  mentors: router({
+    getAll: publicProcedure.query(async () => {
+      const { getAllMentors } = await import("./db");
+      return await getAllMentors();
+    }),
+    create: publicProcedure
+      .input(z.object({
+        firstName: z.string().min(1),
+        lastName: z.string().min(1),
+        email: z.string().email(),
+        phone: z.string().optional(),
+        company: z.string().optional(),
+        expertise: z.string().optional(),
+        bio: z.string().optional(),
+        status: z.enum(["active", "inactive"]).optional(),
+        sessionsCompleted: z.number().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { createMentor } = await import("./db");
+        return await createMentor(input);
+      }),
+    update: publicProcedure
+      .input(z.object({
+        id: z.number(),
+        firstName: z.string().optional(),
+        lastName: z.string().optional(),
+        email: z.string().email().optional(),
+        phone: z.string().optional(),
+        company: z.string().optional(),
+        expertise: z.string().optional(),
+        bio: z.string().optional(),
+        status: z.enum(["active", "inactive"]).optional(),
+        sessionsCompleted: z.number().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { updateMentor } = await import("./db");
+        const { id, ...data } = input;
+        return await updateMentor(id, data);
+      }),
+    delete: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        const { deleteMentor } = await import("./db");
+        return await deleteMentor(input.id);
+      }),
+  }),
+
+  // Budget Management
+  budgets: router({
+    getAll: publicProcedure.query(async () => {
+      const { getAllBudgets } = await import("./db");
+      return await getAllBudgets();
+    }),
+    create: publicProcedure
+      .input(z.object({
+        name: z.string().min(1),
+        category: z.enum(["operations", "marketing", "programs", "hr", "other"]),
+        allocated: z.string(),
+        spent: z.string().optional(),
+        fiscalYear: z.number(),
+        status: z.enum(["active", "closed"]).optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { createBudget } = await import("./db");
+        return await createBudget(input);
+      }),
+    update: publicProcedure
+      .input(z.object({
+        id: z.number(),
+        name: z.string().optional(),
+        category: z.enum(["operations", "marketing", "programs", "hr", "other"]).optional(),
+        allocated: z.string().optional(),
+        spent: z.string().optional(),
+        fiscalYear: z.number().optional(),
+        status: z.enum(["active", "closed"]).optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { updateBudget } = await import("./db");
+        const { id, ...data } = input;
+        return await updateBudget(id, data);
+      }),
+    delete: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        const { deleteBudget } = await import("./db");
+        return await deleteBudget(input.id);
+      }),
+  }),
+
+  // Expense Management
+  expenses: router({
+    getAll: publicProcedure.query(async () => {
+      const { getAllExpenses } = await import("./db");
+      return await getAllExpenses();
+    }),
+    create: publicProcedure
+      .input(z.object({
+        budgetId: z.number().optional(),
+        category: z.string().min(1),
+        description: z.string().min(1),
+        amount: z.string(),
+        expenseDate: z.string(),
+        vendor: z.string().optional(),
+        status: z.enum(["pending", "approved", "paid"]).optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { createExpense } = await import("./db");
+        const { expenseDate, ...data } = input;
+        return await createExpense({
+          ...data,
+          expenseDate: new Date(expenseDate),
+        });
+      }),
+    update: publicProcedure
+      .input(z.object({
+        id: z.number(),
+        budgetId: z.number().optional(),
+        category: z.string().optional(),
+        description: z.string().optional(),
+        amount: z.string().optional(),
+        expenseDate: z.string().optional(),
+        vendor: z.string().optional(),
+        status: z.enum(["pending", "approved", "paid"]).optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { updateExpense } = await import("./db");
+        const { id, expenseDate, ...data } = input;
+        const updateData = {
+          ...data,
+          ...(expenseDate ? { expenseDate: new Date(expenseDate) } : {}),
+        };
+        return await updateExpense(id, updateData);
+      }),
+    delete: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        const { deleteExpense } = await import("./db");
+        return await deleteExpense(input.id);
+      }),
+  }),
+
+  // Web Content Management
+  webPages: router({
+    getAll: publicProcedure.query(async () => {
+      const { getAllWebPages } = await import("./db");
+      return await getAllWebPages();
+    }),
+    getBySlug: publicProcedure
+      .input(z.object({ slug: z.string() }))
+      .query(async ({ input }) => {
+        const { getWebPageBySlug } = await import("./db");
+        return await getWebPageBySlug(input.slug);
+      }),
+    create: publicProcedure
+      .input(z.object({
+        slug: z.string().min(1),
+        title: z.string().min(1),
+        content: z.string().min(1),
+        status: z.enum(["draft", "published"]).optional(),
+        updatedBy: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { createWebPage } = await import("./db");
+        return await createWebPage(input);
+      }),
+    update: publicProcedure
+      .input(z.object({
+        id: z.number(),
+        slug: z.string().optional(),
+        title: z.string().optional(),
+        content: z.string().optional(),
+        status: z.enum(["draft", "published"]).optional(),
+        updatedBy: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { updateWebPage } = await import("./db");
+        const { id, ...data } = input;
+        return await updateWebPage(id, data);
+      }),
+    delete: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        const { deleteWebPage } = await import("./db");
+        return await deleteWebPage(input.id);
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;

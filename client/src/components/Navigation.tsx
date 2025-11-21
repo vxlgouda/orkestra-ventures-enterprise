@@ -37,12 +37,12 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <img
-              src={APP_LOGO}
-              alt={APP_TITLE}
-              className="h-10 w-auto transition-transform duration-200 group-hover:scale-105"
+              src="/logo-icon.png"
+              alt="Orkestra Ventures"
+              className="h-10 w-10 transition-transform duration-200 group-hover:scale-105"
             />
-            <span className="text-xl font-semibold text-[oklch(0.2_0.05_240)] hidden sm:block">
-              {APP_TITLE}
+            <span className="text-xl font-bold text-[oklch(0.2_0.05_240)]">
+              Orkestra Ventures
             </span>
           </Link>
 
@@ -85,8 +85,8 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-6 border-t border-[oklch(0.9_0.005_240)]">
-            <div className="flex flex-col gap-4">
+          <div className="lg:hidden fixed inset-x-0 top-20 bg-white shadow-lg z-40 max-h-[calc(100vh-5rem)] overflow-y-auto">
+            <div className="container py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}

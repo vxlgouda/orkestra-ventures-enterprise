@@ -1,17 +1,12 @@
 {
+  "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
-  "installCommand": "npm install",
-  "framework": null,
-  "rewrites": [
+  "installCommand": "npm install --legacy-peer-deps",
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
-  ],
-  "functions": {
-    "dist/index.js": {
-      "runtime": "nodejs20.x"
-    }
-  }
+  ]
 }

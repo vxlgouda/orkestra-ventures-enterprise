@@ -12,8 +12,8 @@ export default function Footer() {
           {/* About Column */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <img src={APP_LOGO} alt={APP_TITLE} className="h-10 w-auto" />
-              <span className="text-lg font-semibold">{APP_TITLE}</span>
+              <img src="/logo-icon.png" alt="Orkestra Ventures" className="h-10 w-10" />
+              <span className="text-lg font-bold">Orkestra Ventures</span>
             </div>
             <p className="text-body-small text-[oklch(0.7_0.005_240)] mb-6">
               Building global AI leaders from Egypt. Empowering the next

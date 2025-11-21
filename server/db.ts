@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { InsertUser, users, applications, contacts, newsletterSubscribers, InsertApplication, InsertContact, InsertNewsletterSubscriber } from "../drizzle/schema";
 import { ENV } from './_core/env';
@@ -231,4 +231,230 @@ export async function unsubscribeNewsletter(id: number) {
   }
 
   await db.update(newsletterSubscribers).set({ isActive: 0, unsubscribedAt: new Date() }).where(eq(newsletterSubscribers.id, id));
+}
+
+
+// Site Settings Functions
+export async function getAllSiteSettings() {
+  const db = await getDb();
+  if (!db) return [];
+  
+  try {
+    const { siteSettings } = await import("../drizzle/schema");
+    return await db.select().from(siteSettings);
+  } catch (error) {
+    console.error("[Database] Error fetching site settings:", error);
+    return [];
+  }
+}
+
+export async function getSiteSetting(key: string) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  try {
+    const { siteSettings } = await import("../drizzle/schema");
+    const { eq } = await import("drizzle-orm");
+    const results = await db.select().from(siteSettings).where(eq(siteSettings.settingKey, key));
+    return results[0] || null;
+  } catch (error) {
+    console.error("[Database] Error fetching site setting:", error);
+    return null;
+  }
+}
+
+export async function updateSiteSetting(key: string, value: string, type: "text" | "url" | "image" | "number" | "json" = "text") {
+  const db = await getDb();
+  if (!db) return null;
+  
+  try {
+    const { siteSettings } = await import("../drizzle/schema");
+    const { eq } = await import("drizzle-orm");
+    
+    // Check if setting exists
+    const existing = await getSiteSetting(key);
+    
+    if (existing) {
+      // Update existing
+      await db.update(siteSettings)
+        .set({ settingValue: value, settingType: type })
+        .where(eq(siteSettings.settingKey, key));
+    } else {
+      // Insert new
+      await db.insert(siteSettings).values({
+        settingKey: key,
+        settingValue: value,
+        settingType: type,
+      });
+    }
+    
+    return { success: true };
+  } catch (error) {
+    console.error("[Database] Error updating site setting:", error);
+    return null;
+  }
+}
+
+// ============================================
+// ENTERPRISE MODULE DATABASE FUNCTIONS
+// ============================================
+
+// Import new tables
+import { leads, cohorts, mentors, budgets, expenses, webPages } from "../drizzle/schema";
+
+// Lead Management Functions
+export async function getAllLeads() {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(leads).orderBy(desc(leads.createdAt));
+}
+
+export async function createLead(data: typeof leads.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(leads).values(data);
+}
+
+export async function updateLead(id: number, data: Partial<typeof leads.$inferInsert>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.update(leads).set(data).where(eq(leads.id, id));
+}
+
+export async function deleteLead(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.delete(leads).where(eq(leads.id, id));
+}
+
+// Cohort Management Functions
+export async function getAllCohorts() {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(cohorts).orderBy(desc(cohorts.startDate));
+}
+
+export async function createCohort(data: typeof cohorts.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(cohorts).values(data);
+}
+
+export async function updateCohort(id: number, data: Partial<typeof cohorts.$inferInsert>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.update(cohorts).set(data).where(eq(cohorts.id, id));
+}
+
+export async function deleteCohort(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.delete(cohorts).where(eq(cohorts.id, id));
+}
+
+// Mentor Management Functions
+export async function getAllMentors() {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(mentors).orderBy(desc(mentors.createdAt));
+}
+
+export async function createMentor(data: typeof mentors.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(mentors).values(data);
+}
+
+export async function updateMentor(id: number, data: Partial<typeof mentors.$inferInsert>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.update(mentors).set(data).where(eq(mentors.id, id));
+}
+
+export async function deleteMentor(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.delete(mentors).where(eq(mentors.id, id));
+}
+
+// Budget Management Functions
+export async function getAllBudgets() {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(budgets).orderBy(desc(budgets.fiscalYear));
+}
+
+export async function createBudget(data: typeof budgets.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(budgets).values(data);
+}
+
+export async function updateBudget(id: number, data: Partial<typeof budgets.$inferInsert>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.update(budgets).set(data).where(eq(budgets.id, id));
+}
+
+export async function deleteBudget(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.delete(budgets).where(eq(budgets.id, id));
+}
+
+// Expense Management Functions
+export async function getAllExpenses() {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(expenses).orderBy(desc(expenses.expenseDate));
+}
+
+export async function createExpense(data: typeof expenses.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(expenses).values(data);
+}
+
+export async function updateExpense(id: number, data: Partial<typeof expenses.$inferInsert>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.update(expenses).set(data).where(eq(expenses.id, id));
+}
+
+export async function deleteExpense(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.delete(expenses).where(eq(expenses.id, id));
+}
+
+// Web Pages Management Functions
+export async function getAllWebPages() {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(webPages).orderBy(desc(webPages.updatedAt));
+}
+
+export async function getWebPageBySlug(slug: string) {
+  const db = await getDb();
+  if (!db) return null;
+  const result = await db.select().from(webPages).where(eq(webPages.slug, slug)).limit(1);
+  return result[0] || null;
+}
+
+export async function createWebPage(data: typeof webPages.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(webPages).values(data);
+}
+
+export async function updateWebPage(id: number, data: Partial<typeof webPages.$inferInsert>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.update(webPages).set(data).where(eq(webPages.id, id));
+}
+
+export async function deleteWebPage(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.delete(webPages).where(eq(webPages.id, id));
 }
