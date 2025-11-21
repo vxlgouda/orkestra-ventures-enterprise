@@ -1,43 +1,94 @@
-# Orkestra Ventures Website
+# Orkestra Ventures Enterprise Management System
 
-AI Venture Studio partnership between VXL Holding Group and governmental entities, launching from Egypt with global scaling.
+A comprehensive enterprise management platform for venture studios, built with React, TypeScript, Node.js, and MySQL/TiDB.
 
-## Features
+## 🚀 Features
 
-- **Public Website**: Home, About, Programs, Partners, Apply, Contact pages
-- **Admin Control Panel**: Dashboard, Applications, Contacts, Newsletter management
-- **Database Integration**: MySQL/TiDB with full CRUD operations
-- **Analytics Dashboard**: Application tracking and metrics
-- **Legal Pages**: Privacy Policy and Terms of Service
+### Enterprise Modules
 
-## Tech Stack
+1. **Lead/CRM Management** - Track and convert leads with full workflow
+2. **Cohort Management** - Organize program cohorts with enrollment tracking
+3. **Mentor Management** - Maintain expert network with session tracking
+4. **Financial Management** - Budget and expense tracking with real-time KPIs
+5. **Web Content Editor** - Manage website pages from admin panel
+6. **Enhanced Dashboard** - Unified control panel with comprehensive analytics
 
-- **Frontend**: React + TypeScript + Tailwind CSS
-- **Backend**: Node.js + tRPC
+### Existing Modules
+
+- Application Management
+- Contact Management
+- Newsletter Management
+- Settings Management
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 18, TypeScript, Tailwind CSS, Wouter
+- **Backend**: Node.js, Express, tRPC
 - **Database**: MySQL/TiDB with Drizzle ORM
-- **Routing**: Wouter
+- **Build**: Vite
 - **Deployment**: Vercel
 
-## Getting Started
+## 📦 Installation
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Set up environment variables (see `.env.production.example`)
-4. Run development server: `npm run dev`
-5. Build for production: `npm run build`
+```bash
+# Install dependencies
+pnpm install
 
-## Admin Access
+# Run development server
+pnpm dev
 
-- URL: `/admin/login`
-- Username: `admin`
-- Password: Set via `ADMIN_PASSWORD` environment variable
+# Build for production
+pnpm build
 
-## Contact
+# Start production server
+pnpm start
+```
+
+## 🔐 Admin Access
+
+- **URL**: `/admin/login`
+- **Username**: `admin`
+- **Password**: Change in production!
+
+## 📊 Database Schema
+
+- 11 tables including leads, cohorts, mentors, budgets, expenses, webPages
+- Full CRUD operations via tRPC
+- Type-safe queries with Drizzle ORM
+
+## 🌐 Deployment
+
+Deploy to Vercel:
+
+```bash
+vercel --prod
+```
+
+## 📚 Documentation
+
+See the `/docs` folder for:
+- Complete system documentation
+- Quick start guide
+- Feature comparison
+- Deployment checklist
+
+## 🎯 Key Metrics
+
+- 7 Enterprise Modules
+- 25+ API Endpoints
+- 6 New Admin Pages
+- Full TypeScript Coverage
+- Mobile Responsive Design
+
+## 📞 Support
 
 - Email: info@orkestra.ventures
 - Phone: +201114156734
-- Program Start: Q2 2026
 
-## License
+## 📝 License
 
-© 2025 Orkestra Ventures - A VXL Holding Group Initiative
+Proprietary - Orkestra Ventures
+
+---
+
+**Built with ❤️ for Orkestra Ventures**
