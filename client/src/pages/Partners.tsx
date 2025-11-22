@@ -1,4 +1,4 @@
-import { Handshake, Building2, GraduationCap, TrendingUp, Users, ArrowRight } from "lucide-react";
+import { Handshake, Building2, GraduationCap, TrendingUp, Users, ArrowRight, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Partners() {
@@ -294,26 +294,169 @@ export default function Partners() {
         </div>
       </section>
 
-      {/* Current Partners */}
+      {/* Apply as Sponsor */}
       <section className="section-padding section-bg-light">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-h1 mb-6">Our Partners</h2>
-            <p className="text-body-large text-[oklch(0.4_0.02_240)]">
-              Proud to collaborate with leading organizations driving AI
-              innovation.
-            </p>
-          </div>
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-h1 mb-6">Become a Sponsor</h2>
+              <p className="text-body-large text-[oklch(0.4_0.02_240)]">
+                Support the next generation of AI talent and gain visibility as a key partner in Egypt's AI ecosystem.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div
-                key={i}
-                className="card-standard flex items-center justify-center aspect-square"
-              >
-                <Handshake className="h-16 w-16 text-[oklch(0.4_0.02_240)]" />
-              </div>
-            ))}
+            <div className="card-elevated">
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-[oklch(0.3_0.02_240)] mb-2">
+                      Organization Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 border border-[oklch(0.85_0.005_240)] rounded-lg focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
+                      placeholder="Your organization"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-[oklch(0.3_0.02_240)] mb-2">
+                      Industry *
+                    </label>
+                    <select
+                      required
+                      className="w-full px-4 py-3 border border-[oklch(0.85_0.005_240)] rounded-lg focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
+                    >
+                      <option value="">Select industry</option>
+                      <option value="technology">Technology</option>
+                      <option value="finance">Finance</option>
+                      <option value="healthcare">Healthcare</option>
+                      <option value="education">Education</option>
+                      <option value="manufacturing">Manufacturing</option>
+                      <option value="retail">Retail</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-[oklch(0.3_0.02_240)] mb-2">
+                      Contact Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      className="w-full px-4 py-3 border border-[oklch(0.85_0.005_240)] rounded-lg focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
+                      placeholder="Full name"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-[oklch(0.3_0.02_240)] mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      className="w-full px-4 py-3 border border-[oklch(0.85_0.005_240)] rounded-lg focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
+                      placeholder="email@company.com"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-[oklch(0.3_0.02_240)] mb-2">
+                      Phone *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      className="w-full px-4 py-3 border border-[oklch(0.85_0.005_240)] rounded-lg focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
+                      placeholder="+20 XXX XXX XXXX"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-[oklch(0.3_0.02_240)] mb-2">
+                      Sponsorship Level *
+                    </label>
+                    <select
+                      required
+                      className="w-full px-4 py-3 border border-[oklch(0.85_0.005_240)] rounded-lg focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
+                    >
+                      <option value="">Select level</option>
+                      <option value="platinum">Platinum Sponsor</option>
+                      <option value="gold">Gold Sponsor</option>
+                      <option value="silver">Silver Sponsor</option>
+                      <option value="bronze">Bronze Sponsor</option>
+                      <option value="custom">Custom Package</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-[oklch(0.3_0.02_240)] mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    rows={4}
+                    className="w-full px-4 py-3 border border-[oklch(0.85_0.005_240)] rounded-lg focus:ring-2 focus:ring-[oklch(0.55_0.18_260)] focus:border-transparent"
+                    placeholder="Tell us about your sponsorship interests and goals..."
+                  />
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="sponsor-terms"
+                    required
+                    className="mt-1 h-4 w-4 text-[oklch(0.55_0.18_260)] focus:ring-[oklch(0.55_0.18_260)] border-[oklch(0.85_0.005_240)] rounded"
+                  />
+                  <label htmlFor="sponsor-terms" className="text-sm text-[oklch(0.4_0.02_240)]">
+                    I agree to be contacted regarding sponsorship opportunities and understand that Orkestra Ventures will process my information according to the{" "}
+                    <Link href="/privacy-policy" className="text-[oklch(0.55_0.18_260)] hover:underline">
+                      Privacy Policy
+                    </Link>
+                    .
+                  </label>
+                </div>
+
+                <div className="flex gap-4">
+                  <button type="submit" className="btn-primary flex-1">
+                    Submit Sponsorship Application
+                  </button>
+                </div>
+
+                <div className="mt-6 p-4 bg-[oklch(0.98_0.005_240)] rounded-lg">
+                  <h4 className="font-semibold text-[oklch(0.3_0.02_240)] mb-2">Sponsorship Benefits Include:</h4>
+                  <ul className="space-y-2 text-sm text-[oklch(0.4_0.02_240)]">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                      <span>Brand visibility across all program materials and events</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                      <span>Early access to top AI talent for recruitment</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                      <span>Speaking opportunities at program events</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                      <span>Networking with AI ecosystem leaders</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                      <span>Recognition as a supporter of AI education in Egypt</span>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </section>

@@ -74,9 +74,9 @@ export default function Programs() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <span className="badge-accent mb-4 inline-block">
-                Technical Track
+                Technical Bootcamp
               </span>
-              <h2 className="text-h1 mb-6">AI Technical Track</h2>
+              <h2 className="text-h1 mb-6">AI Technical Bootcamp</h2>
               <p className="text-body-large text-[oklch(0.4_0.02_240)]">
                 Master AI/ML development from fundamentals to production-ready
                 systems. Build the technical skills to lead AI innovation.
@@ -264,11 +264,62 @@ export default function Programs() {
                   </li>
                 </ul>
               </div>
+
+              {/* Module 5 - New */}
+              <div className="card-elevated">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[oklch(0.7_0.15_70_/_0.1)] flex items-center justify-center">
+                    <span className="text-xl font-bold text-[oklch(0.7_0.15_70)] font-data">
+                      5
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="text-h3 mb-2">
+                      Advanced AI Applications & Ethics
+                    </h3>
+                    <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                      Weeks 17-20
+                    </p>
+                  </div>
+                </div>
+                <ul className="space-y-2 ml-16">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">
+                      Generative AI: GANs, Diffusion Models, and LLMs
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">
+                      Reinforcement Learning and AI Agents
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">
+                      AI Ethics, Bias Detection, and Responsible AI
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">
+                      AI Security, Privacy, and Compliance
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">
+                      Industry case studies and real-world AI implementations
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <div className="mt-12 text-center">
               <Link href="/apply" className="btn-primary inline-flex items-center gap-2">
-                Apply for Technical Track <ArrowRight className="h-5 w-5" />
+                Apply for Technical Bootcamp <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
           </div>
@@ -281,9 +332,9 @@ export default function Programs() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <span className="badge-accent mb-4 inline-block">
-                Business Track
+                Business Bootcamp
               </span>
-              <h2 className="text-h1 mb-6">AI Business Track</h2>
+              <h2 className="text-h1 mb-6">AI Business Bootcamp</h2>
               <p className="text-body-large text-[oklch(0.4_0.02_240)]">
                 Lead AI transformation in organizations. Build AI-powered
                 businesses and drive strategic innovation without deep technical
@@ -471,11 +522,62 @@ export default function Programs() {
                   </li>
                 </ul>
               </div>
+
+              {/* Module 5 - New */}
+              <div className="card-elevated">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[oklch(0.65_0.12_180_/_0.1)] flex items-center justify-center">
+                    <span className="text-xl font-bold text-[oklch(0.65_0.12_180)] font-data">
+                      5
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="text-h3 mb-2">
+                      AI Governance & Global Expansion
+                    </h3>
+                    <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                      Weeks 17-20
+                    </p>
+                  </div>
+                </div>
+                <ul className="space-y-2 ml-16">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.7_0.15_70)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">
+                      AI regulations and compliance frameworks (EU AI Act, GDPR)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.7_0.15_70)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">
+                      Risk management and AI governance structures
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.7_0.15_70)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">
+                      International market entry strategies
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.7_0.15_70)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">
+                      Building sustainable AI business models
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-[oklch(0.7_0.15_70)] flex-shrink-0 mt-0.5" />
+                    <span className="text-body">
+                      Final project: Present AI business strategy to investors
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <div className="mt-12 text-center">
               <Link href="/apply" className="btn-primary inline-flex items-center gap-2">
-                Apply for Business Track <ArrowRight className="h-5 w-5" />
+                Apply for Business Bootcamp <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
           </div>

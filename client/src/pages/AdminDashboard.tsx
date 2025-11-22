@@ -298,6 +298,64 @@ export default function AdminDashboard() {
             </button>
           </div>
 
+          {/* HR Management */}
+          <div className="bg-white rounded-lg shadow p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-indigo-100 p-3 rounded-lg">
+                <Users className="w-6 h-6 text-indigo-600" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg">HR Management</h3>
+                <p className="text-sm text-gray-600">Employees & attendance</p>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div className="flex justify-between">
+                <span className="text-sm text-gray-600">Total Employees</span>
+                <span className="font-medium">-</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-sm text-gray-600">Active</span>
+                <span className="font-medium text-green-600">-</span>
+              </div>
+            </div>
+            <button
+              onClick={() => setLocation('/admin/hr')}
+              className="mt-4 w-full bg-indigo-50 text-indigo-600 py-2 rounded-lg hover:bg-indigo-100 transition-colors"
+            >
+              Manage HR
+            </button>
+          </div>
+
+          {/* Accounting */}
+          <div className="bg-white rounded-lg shadow p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-teal-100 p-3 rounded-lg">
+                <DollarSign className="w-6 h-6 text-teal-600" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg">Accounting</h3>
+                <p className="text-sm text-gray-600">Invoices & transactions</p>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div className="flex justify-between">
+                <span className="text-sm text-gray-600">Total Revenue</span>
+                <span className="font-medium text-green-600">-</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-sm text-gray-600">Pending</span>
+                <span className="font-medium text-yellow-600">-</span>
+              </div>
+            </div>
+            <button
+              onClick={() => setLocation('/admin/accounting')}
+              className="mt-4 w-full bg-teal-50 text-teal-600 py-2 rounded-lg hover:bg-teal-100 transition-colors"
+            >
+              View Accounting
+            </button>
+          </div>
+
           {/* Settings */}
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center gap-3 mb-4">

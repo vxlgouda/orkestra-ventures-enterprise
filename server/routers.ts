@@ -461,6 +461,284 @@ export const appRouter = router({
         return await deleteWebPage(input.id);
       }),
   }),
+
+  // HR Management - Employees
+  employees: router({
+    getAll: publicProcedure.query(async () => {
+      const { getAllEmployees } = await import("./db");
+      return await getAllEmployees();
+    }),
+    getById: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .query(async ({ input }) => {
+        const { getEmployeeById } = await import("./db");
+        return await getEmployeeById(input.id);
+      }),
+    create: publicProcedure
+      .input(z.object({
+        employeeId: z.string().min(1),
+        fullName: z.string().min(1),
+        email: z.string().email(),
+        phone: z.string().optional(),
+        position: z.string().min(1),
+        department: z.enum(["management", "operations", "marketing", "technology", "finance", "hr"]),
+        employmentType: z.enum(["full-time", "part-time", "contract", "intern"]),
+        salary: z.string().optional(),
+        currency: z.string().optional(),
+        hireDate: z.string(),
+        endDate: z.string().optional(),
+        status: z.enum(["active", "on-leave", "terminated"]).optional(),
+        address: z.string().optional(),
+        emergencyContact: z.string().optional(),
+        emergencyPhone: z.string().optional(),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { createEmployee } = await import("./db");
+        const { hireDate, endDate, ...data } = input;
+        return await createEmployee({
+          ...data,
+          hireDate: new Date(hireDate),
+          ...(endDate && { endDate: new Date(endDate) }),
+        });
+      }),
+    update: publicProcedure
+      .input(z.object({
+        id: z.number(),
+        employeeId: z.string().optional(),
+        fullName: z.string().optional(),
+        email: z.string().email().optional(),
+        phone: z.string().optional(),
+        position: z.string().optional(),
+        department: z.enum(["management", "operations", "marketing", "technology", "finance", "hr"]).optional(),
+        employmentType: z.enum(["full-time", "part-time", "contract", "intern"]).optional(),
+        salary: z.string().optional(),
+        currency: z.string().optional(),
+        hireDate: z.string().optional(),
+        endDate: z.string().optional(),
+        status: z.enum(["active", "on-leave", "terminated"]).optional(),
+        address: z.string().optional(),
+        emergencyContact: z.string().optional(),
+        emergencyPhone: z.string().optional(),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { updateEmployee } = await import("./db");
+        const { id, hireDate, endDate, ...data } = input;
+        return await updateEmployee(id, {
+          ...data,
+          ...(hireDate && { hireDate: new Date(hireDate) }),
+          ...(endDate && { endDate: new Date(endDate) }),
+        });
+      }),
+    delete: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        const { deleteEmployee } = await import("./db");
+        return await deleteEmployee(input.id);
+      }),
+  }),
+
+  // HR Management - Attendance
+  attendance: router({
+    getAll: publicProcedure.query(async () => {
+      const { getAllAttendance } = await import("./db");
+      return await getAllAttendance();
+    }),
+    getByEmployeeId: publicProcedure
+      .input(z.object({ employeeId: z.number() }))
+      .query(async ({ input }) => {
+        const { getAttendanceByEmployeeId } = await import("./db");
+        return await getAttendanceByEmployeeId(input.employeeId);
+      }),
+    create: publicProcedure
+      .input(z.object({
+        employeeId: z.number(),
+        date: z.string(),
+        checkIn: z.string().optional(),
+        checkOut: z.string().optional(),
+        status: z.enum(["present", "absent", "late", "half-day", "leave"]),
+        leaveType: z.enum(["sick", "vacation", "personal", "unpaid"]).optional(),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { createAttendance } = await import("./db");
+        const { date, ...data } = input;
+        return await createAttendance({
+          ...data,
+          date: new Date(date),
+        });
+      }),
+    update: publicProcedure
+      .input(z.object({
+        id: z.number(),
+        employeeId: z.number().optional(),
+        date: z.string().optional(),
+        checkIn: z.string().optional(),
+        checkOut: z.string().optional(),
+        status: z.enum(["present", "absent", "late", "half-day", "leave"]).optional(),
+        leaveType: z.enum(["sick", "vacation", "personal", "unpaid"]).optional(),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { updateAttendance } = await import("./db");
+        const { id, date, ...data } = input;
+        return await updateAttendance(id, {
+          ...data,
+          ...(date && { date: new Date(date) }),
+        });
+      }),
+    delete: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        const { deleteAttendance } = await import("./db");
+        return await deleteAttendance(input.id);
+      }),
+  }),
+
+  // Accounting - Invoices
+  invoices: router({
+    getAll: publicProcedure.query(async () => {
+      const { getAllInvoices } = await import("./db");
+      return await getAllInvoices();
+    }),
+    getById: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .query(async ({ input }) => {
+        const { getInvoiceById } = await import("./db");
+        return await getInvoiceById(input.id);
+      }),
+    create: publicProcedure
+      .input(z.object({
+        invoiceNumber: z.string().min(1),
+        clientName: z.string().min(1),
+        clientEmail: z.string().email().optional(),
+        description: z.string().min(1),
+        amount: z.string(),
+        currency: z.string().optional(),
+        taxAmount: z.string().optional(),
+        totalAmount: z.string(),
+        status: z.enum(["draft", "sent", "paid", "overdue", "cancelled"]).optional(),
+        issueDate: z.string(),
+        dueDate: z.string(),
+        paidDate: z.string().optional(),
+        paymentMethod: z.string().optional(),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { createInvoice } = await import("./db");
+        const { issueDate, dueDate, paidDate, ...data } = input;
+        return await createInvoice({
+          ...data,
+          issueDate: new Date(issueDate),
+          dueDate: new Date(dueDate),
+          ...(paidDate && { paidDate: new Date(paidDate) }),
+        });
+      }),
+    update: publicProcedure
+      .input(z.object({
+        id: z.number(),
+        invoiceNumber: z.string().optional(),
+        clientName: z.string().optional(),
+        clientEmail: z.string().email().optional(),
+        description: z.string().optional(),
+        amount: z.string().optional(),
+        currency: z.string().optional(),
+        taxAmount: z.string().optional(),
+        totalAmount: z.string().optional(),
+        status: z.enum(["draft", "sent", "paid", "overdue", "cancelled"]).optional(),
+        issueDate: z.string().optional(),
+        dueDate: z.string().optional(),
+        paidDate: z.string().optional(),
+        paymentMethod: z.string().optional(),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { updateInvoice } = await import("./db");
+        const { id, issueDate, dueDate, paidDate, ...data } = input;
+        return await updateInvoice(id, {
+          ...data,
+          ...(issueDate && { issueDate: new Date(issueDate) }),
+          ...(dueDate && { dueDate: new Date(dueDate) }),
+          ...(paidDate && { paidDate: new Date(paidDate) }),
+        });
+      }),
+    delete: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        const { deleteInvoice } = await import("./db");
+        return await deleteInvoice(input.id);
+      }),
+  }),
+
+  // Accounting - Transactions
+  transactions: router({
+    getAll: publicProcedure.query(async () => {
+      const { getAllTransactions } = await import("./db");
+      return await getAllTransactions();
+    }),
+    getById: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .query(async ({ input }) => {
+        const { getTransactionById } = await import("./db");
+        return await getTransactionById(input.id);
+      }),
+    create: publicProcedure
+      .input(z.object({
+        transactionNumber: z.string().min(1),
+        type: z.enum(["income", "expense"]),
+        category: z.string().min(1),
+        description: z.string().min(1),
+        amount: z.string(),
+        currency: z.string().optional(),
+        paymentMethod: z.string().optional(),
+        referenceNumber: z.string().optional(),
+        relatedInvoiceId: z.number().optional(),
+        relatedExpenseId: z.number().optional(),
+        transactionDate: z.string(),
+        status: z.enum(["completed", "pending", "cancelled"]).optional(),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { createTransaction } = await import("./db");
+        const { transactionDate, ...data } = input;
+        return await createTransaction({
+          ...data,
+          transactionDate: new Date(transactionDate),
+        });
+      }),
+    update: publicProcedure
+      .input(z.object({
+        id: z.number(),
+        transactionNumber: z.string().optional(),
+        type: z.enum(["income", "expense"]).optional(),
+        category: z.string().optional(),
+        description: z.string().optional(),
+        amount: z.string().optional(),
+        currency: z.string().optional(),
+        paymentMethod: z.string().optional(),
+        referenceNumber: z.string().optional(),
+        relatedInvoiceId: z.number().optional(),
+        relatedExpenseId: z.number().optional(),
+        transactionDate: z.string().optional(),
+        status: z.enum(["completed", "pending", "cancelled"]).optional(),
+        notes: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { updateTransaction } = await import("./db");
+        const { id, transactionDate, ...data } = input;
+        return await updateTransaction(id, {
+          ...data,
+          ...(transactionDate && { transactionDate: new Date(transactionDate) }),
+        });
+      }),
+    delete: publicProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        const { deleteTransaction } = await import("./db");
+        return await deleteTransaction(input.id);
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;

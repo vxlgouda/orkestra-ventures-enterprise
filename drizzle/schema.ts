@@ -1,4 +1,4 @@
-import { decimal, int, mysqlEnum, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
+import { date, decimal, int, mysqlEnum, mysqlTable, text, time, timestamp, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -207,3 +207,104 @@ export const webPages = mysqlTable("webPages", {
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });
+
+/**
+ * HR Management - Employees table
+ * Manages employee records, payroll, and HR operations
+ */
+export const employees = mysqlTable("employees", {
+  id: int("id").autoincrement().primaryKey(),
+  employeeId: varchar("employeeId", { length: 50 }).notNull().unique(),
+  fullName: varchar("fullName", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull().unique(),
+  phone: varchar("phone", { length: 50 }),
+  position: varchar("position", { length: 255 }).notNull(),
+  department: mysqlEnum("department", ["management", "operations", "marketing", "technology", "finance", "hr"]).notNull(),
+  employmentType: mysqlEnum("employmentType", ["full-time", "part-time", "contract", "intern"]).notNull(),
+  salary: decimal("salary", { precision: 10, scale: 2 }),
+  currency: varchar("currency", { length: 10 }).default("EGP"),
+  hireDate: date("hireDate").notNull(),
+  endDate: date("endDate"),
+  status: mysqlEnum("status", ["active", "on-leave", "terminated"]).default("active").notNull(),
+  address: text("address"),
+  emergencyContact: varchar("emergencyContact", { length: 255 }),
+  emergencyPhone: varchar("emergencyPhone", { length: 50 }),
+  notes: text("notes"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Employee = typeof employees.$inferSelect;
+export type InsertEmployee = typeof employees.$inferInsert;
+
+/**
+ * HR Management - Attendance table
+ * Tracks employee attendance and time off
+ */
+export const attendance = mysqlTable("attendance", {
+  id: int("id").autoincrement().primaryKey(),
+  employeeId: int("employeeId").notNull(),
+  date: date("date").notNull(),
+  checkIn: time("checkIn"),
+  checkOut: time("checkOut"),
+  status: mysqlEnum("status", ["present", "absent", "late", "half-day", "leave"]).notNull(),
+  leaveType: mysqlEnum("leaveType", ["sick", "vacation", "personal", "unpaid"]),
+  notes: text("notes"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type Attendance = typeof attendance.$inferSelect;
+export type InsertAttendance = typeof attendance.$inferInsert;
+
+/**
+ * Accounting - Invoices table
+ * Manages invoices for clients and revenue tracking
+ */
+export const invoices = mysqlTable("invoices", {
+  id: int("id").autoincrement().primaryKey(),
+  invoiceNumber: varchar("invoiceNumber", { length: 50 }).notNull().unique(),
+  clientName: varchar("clientName", { length: 255 }).notNull(),
+  clientEmail: varchar("clientEmail", { length: 320 }),
+  description: text("description").notNull(),
+  amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
+  currency: varchar("currency", { length: 10 }).default("EGP"),
+  taxAmount: decimal("taxAmount", { precision: 10, scale: 2 }).default("0"),
+  totalAmount: decimal("totalAmount", { precision: 10, scale: 2 }).notNull(),
+  status: mysqlEnum("status", ["draft", "sent", "paid", "overdue", "cancelled"]).default("draft").notNull(),
+  issueDate: date("issueDate").notNull(),
+  dueDate: date("dueDate").notNull(),
+  paidDate: date("paidDate"),
+  paymentMethod: varchar("paymentMethod", { length: 100 }),
+  notes: text("notes"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Invoice = typeof invoices.$inferSelect;
+export type InsertInvoice = typeof invoices.$inferInsert;
+
+/**
+ * Accounting - Transactions table
+ * Records all financial transactions (income and expenses)
+ */
+export const transactions = mysqlTable("transactions", {
+  id: int("id").autoincrement().primaryKey(),
+  transactionNumber: varchar("transactionNumber", { length: 50 }).notNull().unique(),
+  type: mysqlEnum("type", ["income", "expense"]).notNull(),
+  category: varchar("category", { length: 100 }).notNull(),
+  description: text("description").notNull(),
+  amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
+  currency: varchar("currency", { length: 10 }).default("EGP"),
+  paymentMethod: varchar("paymentMethod", { length: 100 }),
+  referenceNumber: varchar("referenceNumber", { length: 100 }),
+  relatedInvoiceId: int("relatedInvoiceId"),
+  relatedExpenseId: int("relatedExpenseId"),
+  transactionDate: date("transactionDate").notNull(),
+  status: mysqlEnum("status", ["completed", "pending", "cancelled"]).default("completed").notNull(),
+  notes: text("notes"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Transaction = typeof transactions.$inferSelect;
+export type InsertTransaction = typeof transactions.$inferInsert;

@@ -1,10 +1,13 @@
 import { ArrowRight, Users, Target, Rocket, Award, TrendingUp, Globe, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
+import NewsletterPopup from "../components/NewsletterPopup";
 
 export default function Home() {
 
   return (
-    <div className="min-h-screen">
+    <>
+      <NewsletterPopup />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="pt-32 pb-20 lg:pt-40 lg:pb-28 bg-gradient-to-b from-[oklch(0.98_0.005_240)] to-white">
         <div className="container">
@@ -432,5 +435,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </>
   );
 }

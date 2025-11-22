@@ -458,3 +458,134 @@ export async function deleteWebPage(id: number) {
   if (!db) throw new Error("Database not available");
   return await db.delete(webPages).where(eq(webPages.id, id));
 }
+
+// ==================== HR MANAGEMENT ====================
+
+import { employees, attendance } from "../drizzle/schema";
+
+export async function getAllEmployees() {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(employees).orderBy(desc(employees.createdAt));
+}
+
+export async function getEmployeeById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+  const result = await db.select().from(employees).where(eq(employees.id, id)).limit(1);
+  return result[0] || null;
+}
+
+export async function createEmployee(data: typeof employees.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(employees).values(data);
+}
+
+export async function updateEmployee(id: number, data: Partial<typeof employees.$inferInsert>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.update(employees).set(data).where(eq(employees.id, id));
+}
+
+export async function deleteEmployee(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.delete(employees).where(eq(employees.id, id));
+}
+
+export async function getAllAttendance() {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(attendance).orderBy(desc(attendance.date));
+}
+
+export async function getAttendanceByEmployeeId(employeeId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(attendance).where(eq(attendance.employeeId, employeeId)).orderBy(desc(attendance.date));
+}
+
+export async function createAttendance(data: typeof attendance.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(attendance).values(data);
+}
+
+export async function updateAttendance(id: number, data: Partial<typeof attendance.$inferInsert>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.update(attendance).set(data).where(eq(attendance.id, id));
+}
+
+export async function deleteAttendance(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.delete(attendance).where(eq(attendance.id, id));
+}
+
+// ==================== ACCOUNTING ====================
+
+import { invoices, transactions } from "../drizzle/schema";
+
+export async function getAllInvoices() {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(invoices).orderBy(desc(invoices.createdAt));
+}
+
+export async function getInvoiceById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+  const result = await db.select().from(invoices).where(eq(invoices.id, id)).limit(1);
+  return result[0] || null;
+}
+
+export async function createInvoice(data: typeof invoices.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(invoices).values(data);
+}
+
+export async function updateInvoice(id: number, data: Partial<typeof invoices.$inferInsert>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.update(invoices).set(data).where(eq(invoices.id, id));
+}
+
+export async function deleteInvoice(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.delete(invoices).where(eq(invoices.id, id));
+}
+
+export async function getAllTransactions() {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(transactions).orderBy(desc(transactions.transactionDate));
+}
+
+export async function getTransactionById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+  const result = await db.select().from(transactions).where(eq(transactions.id, id)).limit(1);
+  return result[0] || null;
+}
+
+export async function createTransaction(data: typeof transactions.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.insert(transactions).values(data);
+}
+
+export async function updateTransaction(id: number, data: Partial<typeof transactions.$inferInsert>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.update(transactions).set(data).where(eq(transactions.id, id));
+}
+
+export async function deleteTransaction(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return await db.delete(transactions).where(eq(transactions.id, id));
+}

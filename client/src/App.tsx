@@ -24,6 +24,8 @@ import AdminCohorts from "./pages/AdminCohorts";
 import AdminMentors from "./pages/AdminMentors";
 import AdminFinancials from "./pages/AdminFinancials";
 import AdminWebEditor from "./pages/AdminWebEditor";
+import AdminHR from "./pages/AdminHR";
+import AdminAccounting from "./pages/AdminAccounting";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import { AdminAuthProvider } from "./contexts/AdminAuthContext";
@@ -58,6 +60,8 @@ function Router() {
         <Route path="/admin/mentors" component={AdminMentors} />
         <Route path="/admin/financials" component={AdminFinancials} />
         <Route path="/admin/web-editor" component={AdminWebEditor} />
+        <Route path="/admin/hr" component={AdminHR} />
+        <Route path="/admin/accounting" component={AdminAccounting} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms-of-service" component={TermsOfService} />
         <Route path={"/404"} component={NotFound} />
