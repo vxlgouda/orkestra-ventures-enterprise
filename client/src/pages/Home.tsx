@@ -27,15 +27,15 @@ export default function Home() {
             </div>
             <h1 className="text-display mb-6">
               Launch Your Global AI Career{" "}
-              <span className="text-gradient inline-block min-w-[300px] text-left">
-                <span 
-                  key={currentLocation}
-                  className="inline-block animate-fade-in-up"
-                  style={{
-                    animation: 'fadeInUp 0.6s ease-out'
-                  }}
-                >
-                  from {locations[currentLocation]}
+              <span className="inline-block">
+                from{" "}
+                <span className="text-gradient inline-block min-w-[200px] text-left relative" style={{ height: '1.2em', verticalAlign: 'baseline' }}>
+                  <span 
+                    key={currentLocation}
+                    className="inline-block absolute left-0 animate-rotate-word"
+                  >
+                    {locations[currentLocation]}
+                  </span>
                 </span>
               </span>
             </h1>
