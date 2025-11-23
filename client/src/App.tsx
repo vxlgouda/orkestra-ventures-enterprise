@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Programs from "./pages/Programs";
 import Partners from "./pages/Partners";
+import Mentors from "./pages/Mentors";
 import Apply from "./pages/Apply";
 import Contact from "./pages/Contact";
 import AdminLogin from "./pages/AdminLogin";
@@ -47,6 +48,7 @@ function Router() {
         <Route path={"/about"} component={About} />
         <Route path={"/programs"} component={Programs} />
         <Route path={"/partners"} component={Partners} />
+        <Route path={"/mentors"} component={Mentors} />
         <Route path={"/apply"} component={Apply} />
         <Route path={"/contact"} component={Contact} />
         <Route path="/admin/login" component={AdminLogin} />
