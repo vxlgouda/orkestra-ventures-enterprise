@@ -27,24 +27,13 @@ export default function About() {
             <h2 className="text-h1 mb-8 text-center">Our Story</h2>
             <div className="space-y-6 text-body text-[oklch(0.4_0.02_240)]">
               <p>
-                Orkestra Ventures was founded on a simple yet powerful vision:
-                Egypt has exceptional talent that deserves global opportunities.
-                As artificial intelligence reshapes industries worldwide, we
-                recognized the need for a structured pathway to transform
-                talented Egyptian professionals into world-class AI leaders.
+                Orkestra Ventures was founded on a transformative vision: to bridge the global AI talent gap by unlocking exceptional potential from emerging markets. As artificial intelligence reshapes industries across continents, we recognized that talent knows no borders—yet opportunities often do. We exist to change that paradigm.
               </p>
               <p>
-                Launched by VXL Holding Group, Orkestra Ventures represents a
-                commitment to building sustainable AI ecosystems that benefit
-                individuals, organizations, and nations. We're not just training
-                AI professionals—we're creating a movement that positions Egypt
-                as a global AI talent hub.
+                Born from VXL Holding Group's commitment to global innovation, Orkestra Ventures is more than an AI training program—it's a catalyst for worldwide technological advancement. We're building a borderless ecosystem where talented professionals from Egypt, the Middle East, Africa, and beyond can access world-class education, connect with international mentors, and launch careers that span continents.
               </p>
               <p>
-                Our 16-week intensive program combines rigorous technical
-                training, strategic business education, world-class mentorship,
-                and direct career pathways. Every element is designed to ensure
-                our graduates don't just learn AI—they lead with it.
+                Our 16-week intensive program represents a new model for global talent development: combining Silicon Valley-caliber technical training, international business strategy, cross-cultural mentorship from industry leaders worldwide, and direct pathways to opportunities in Egypt, the Gulf, Europe, North America, and beyond. We're not just training AI professionals—we're cultivating a generation of global AI leaders who will drive innovation across borders and industries.
               </p>
             </div>
           </div>
@@ -61,11 +50,7 @@ export default function About() {
               </div>
               <h2 className="text-h2 mb-4">Our Mission</h2>
               <p className="text-body text-[oklch(0.4_0.02_240)]">
-                To empower talented professionals with world-class AI education,
-                mentorship, and career opportunities that enable them to compete
-                and succeed in global markets. We bridge the gap between
-                potential and opportunity, creating pathways for Egyptian talent
-                to lead AI innovation worldwide.
+                To democratize access to world-class AI education and create pathways for talented professionals from emerging markets to compete, innovate, and lead on the global stage. We bridge continents, cultures, and opportunities—transforming potential into impact by connecting exceptional talent with international mentors, cutting-edge knowledge, and career opportunities that span from Cairo to Silicon Valley, from Dubai to London, and beyond.
               </p>
             </div>
 
@@ -75,11 +60,7 @@ export default function About() {
               </div>
               <h2 className="text-h2 mb-4">Our Vision</h2>
               <p className="text-body text-[oklch(0.4_0.02_240)]">
-                To establish Egypt as a recognized global hub for AI talent,
-                where professionals are equipped to drive technological
-                transformation across industries and geographies. We envision a
-                future where "Made in Egypt" AI expertise is sought after by
-                leading organizations worldwide.
+                To build a borderless AI talent ecosystem that positions emerging markets as powerhouses of global innovation. We envision a future where geographical origin is no barrier to technological leadership—where AI professionals from Cairo, Lagos, Karachi, and beyond are recognized as world-class innovators driving transformation at Fortune 500 companies, leading startups, shaping policy, and solving humanity's greatest challenges. Our vision is a world where talent, not location, determines opportunity.
               </p>
             </div>
           </div>
