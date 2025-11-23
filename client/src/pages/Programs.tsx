@@ -584,6 +584,193 @@ export default function Programs() {
         </div>
       </section>
 
+      {/* AI for Decision Makers Track */}
+      <section id="executive" className="section-padding section-bg-light">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="badge-accent mb-4 inline-block">
+                Executive Bootcamp
+              </span>
+              <h2 className="text-h1 mb-6">AI for Decision Makers</h2>
+              <p className="text-body-large text-[oklch(0.4_0.02_240)]">
+                Strategic AI leadership program for executives, senior managers, and decision-makers. Learn to drive AI transformation, evaluate AI investments, and lead AI-powered organizations without deep technical expertise.
+              </p>
+            </div>
+
+            {/* Who Should Apply */}
+            <div className="card-elevated mb-12">
+              <h3 className="text-h3 mb-6">Who Should Apply</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-body font-semibold mb-1">C-Level Executives</p>
+                    <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                      CEOs, CTOs, and senior leaders driving organizational AI strategy
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-body font-semibold mb-1">Department Heads</p>
+                    <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                      Directors and VPs responsible for AI adoption in their units
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-body font-semibold mb-1">Board Members</p>
+                    <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                      Board directors evaluating AI investments and governance
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-6 w-6 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-body font-semibold mb-1">Entrepreneurs</p>
+                    <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                      Founders integrating AI into their business models
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Curriculum */}
+            <div className="mb-12">
+              <h3 className="text-h3 mb-8 text-center">Executive Curriculum</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="card-standard">
+                  <div className="flex items-start gap-4">
+                    <div className="text-2xl font-bold text-[oklch(0.55_0.18_260)] font-data">
+                      01
+                    </div>
+                    <div>
+                      <h4 className="text-h4 mb-2">AI Strategy & Vision</h4>
+                      <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                        Develop organizational AI strategy, identify opportunities, and create transformation roadmaps
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="card-standard">
+                  <div className="flex items-start gap-4">
+                    <div className="text-2xl font-bold text-[oklch(0.7_0.15_70)] font-data">
+                      02
+                    </div>
+                    <div>
+                      <h4 className="text-h4 mb-2">AI Business Models</h4>
+                      <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                        Understand AI-driven business models, revenue opportunities, and competitive advantages
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="card-standard">
+                  <div className="flex items-start gap-4">
+                    <div className="text-2xl font-bold text-[oklch(0.65_0.12_180)] font-data">
+                      03
+                    </div>
+                    <div>
+                      <h4 className="text-h4 mb-2">AI Investment & ROI</h4>
+                      <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                        Evaluate AI projects, calculate ROI, and make informed investment decisions
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="card-standard">
+                  <div className="flex items-start gap-4">
+                    <div className="text-2xl font-bold text-[oklch(0.55_0.18_260)] font-data">
+                      04
+                    </div>
+                    <div>
+                      <h4 className="text-h4 mb-2">AI Governance & Ethics</h4>
+                      <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                        Establish AI governance frameworks, manage risks, and ensure ethical AI deployment
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="card-standard">
+                  <div className="flex items-start gap-4">
+                    <div className="text-2xl font-bold text-[oklch(0.7_0.15_70)] font-data">
+                      05
+                    </div>
+                    <div>
+                      <h4 className="text-h4 mb-2">Leading AI Teams</h4>
+                      <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                        Build and manage AI teams, foster innovation culture, and drive organizational change
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="card-standard">
+                  <div className="flex items-start gap-4">
+                    <div className="text-2xl font-bold text-[oklch(0.65_0.12_180)] font-data">
+                      06
+                    </div>
+                    <div>
+                      <h4 className="text-h4 mb-2">AI Ecosystem & Partnerships</h4>
+                      <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                        Navigate AI vendor landscape, build partnerships, and leverage external AI capabilities
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Learning Outcomes */}
+            <div className="card-elevated mb-12">
+              <h3 className="text-h3 mb-6">What You'll Achieve</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                  <p className="text-body">Strategic AI vision for your organization</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                  <p className="text-body">Confidence to evaluate AI investments</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                  <p className="text-body">Framework for AI governance and risk management</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                  <p className="text-body">Network of AI leaders and experts</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                  <p className="text-body">Practical AI transformation roadmap</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.65_0.12_180)] flex-shrink-0 mt-0.5" />
+                  <p className="text-body">Executive AI leadership certification</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/apply" className="btn-primary inline-flex items-center gap-2">
+                Apply for Executive Bootcamp <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Program Format */}
       <section className="section-padding section-bg-light">
         <div className="container">

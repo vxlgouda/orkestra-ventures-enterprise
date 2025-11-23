@@ -91,7 +91,7 @@ export default function Footer() {
                   href="/programs#technical"
                   className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
                 >
-                  Technical AI Track
+                  Technical AI Bootcamp
                 </Link>
               </li>
               <li>
@@ -99,7 +99,15 @@ export default function Footer() {
                   href="/programs#business"
                   className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
                 >
-                  Business AI Track
+                  Business AI Bootcamp
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/programs#executive"
+                  className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
+                >
+                  AI for Decision Makers
                 </Link>
               </li>
               <li>
@@ -127,9 +135,10 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-[oklch(0.7_0.15_70)] flex-shrink-0 mt-0.5" />
-                <span className="text-body-small text-[oklch(0.7_0.005_240)]">
-                  Smart Village, Cairo, Egypt
-                </span>
+                <div className="text-body-small text-[oklch(0.7_0.005_240)]">
+                  <div className="mb-2">Smart Village, Cairo, Egypt</div>
+                  <div>ADGM, Abu Dhabi, UAE</div>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-[oklch(0.7_0.15_70)] flex-shrink-0" />
@@ -140,14 +149,20 @@ export default function Footer() {
                   info@orkestra.ventures
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-[oklch(0.7_0.15_70)] flex-shrink-0" />
-                <a
-                  href="tel:+20123456789"
-                  className="text-body-small text-[oklch(0.7_0.005_240)] hover:text-white transition-colors"
-                >
-                  +201114156734
-                </a>
+              <li className="flex items-start gap-3">
+                <Phone className="h-5 w-5 text-[oklch(0.7_0.15_70)] flex-shrink-0 mt-0.5" />
+                <div className="text-body-small text-[oklch(0.7_0.005_240)]">
+                  <div className="mb-1">
+                    <a href="tel:+201114156734" className="hover:text-white transition-colors">
+                      +20 111 415 6734 (Egypt)
+                    </a>
+                  </div>
+                  <div>
+                    <a href="tel:+971569960853" className="hover:text-white transition-colors">
+                      +971 56 996 0853 (UAE)
+                    </a>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>

@@ -348,8 +348,7 @@ export default function Home() {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-h1 mb-6">Your Global Career Awaits</h2>
             <p className="text-body-large text-[oklch(0.4_0.02_240)]">
-              Launch from Egypt, scale globally. Multiple pathways to build your
-              AI career.
+              Train in Egypt, launch globally. Access competitive opportunities across multiple markets and build a world-class AI career from day one.
             </p>
           </div>
 
@@ -360,10 +359,10 @@ export default function Home() {
               </div>
               <h3 className="text-h4 mb-3">Egypt Tech Ecosystem</h3>
               <p className="text-body-small text-[oklch(0.4_0.02_240)] mb-3">
-                Join leading Egyptian tech companies and startups
+                Join leading Egyptian tech companies and fast-growing startups in Cairo's thriving AI hub
               </p>
               <div className="text-body-small font-semibold text-[oklch(0.55_0.18_260)] font-data">
-                EGP 180K-480K/year
+                Competitive Local Packages
               </div>
             </div>
 
@@ -373,10 +372,10 @@ export default function Home() {
               </div>
               <h3 className="text-h4 mb-3">UAE & GCC Markets</h3>
               <p className="text-body-small text-[oklch(0.4_0.02_240)] mb-3">
-                Access opportunities in Dubai, Abu Dhabi, and beyond
+                Access premium opportunities in Dubai, Abu Dhabi, and across the Gulf region
               </p>
               <div className="text-body-small font-semibold text-[oklch(0.7_0.15_70)] font-data">
-                AED 180K-360K/year
+                Regional Leadership Roles
               </div>
             </div>
 
@@ -386,10 +385,10 @@ export default function Home() {
               </div>
               <h3 className="text-h4 mb-3">International Remote</h3>
               <p className="text-body-small text-[oklch(0.4_0.02_240)] mb-3">
-                Work remotely for global tech companies
+                Work remotely for Fortune 500 companies and global tech giants from anywhere
               </p>
               <div className="text-body-small font-semibold text-[oklch(0.65_0.12_180)] font-data">
-                USD 60K-120K/year
+                Global Compensation Standards
               </div>
             </div>
 
@@ -399,10 +398,10 @@ export default function Home() {
               </div>
               <h3 className="text-h4 mb-3">Entrepreneurship</h3>
               <p className="text-body-small text-[oklch(0.4_0.02_240)] mb-3">
-                Launch your AI startup with our support
+                Launch your AI startup with seed funding, mentorship, and global market access
               </p>
               <div className="text-body-small font-semibold text-[oklch(0.55_0.18_260)] font-data">
-                Funding & Mentorship
+                Venture Support & Capital
               </div>
             </div>
           </div>

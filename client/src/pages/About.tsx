@@ -321,7 +321,7 @@ export default function About() {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-h1 mb-6">Our Journey</h2>
             <p className="text-body-large text-[oklch(0.4_0.02_240)]">
-              Key milestones in building Egypt's premier AI talent program.
+              Building a global AI talent platform with Egypt as the launchpad for regional and international expansion.
             </p>
           </div>
 
@@ -330,15 +330,13 @@ export default function About() {
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-32">
                   <div className="text-h3 font-bold text-[oklch(0.55_0.18_260)] font-data">
-                    2025
+                    2026
                   </div>
                 </div>
                 <div className="flex-1 card-standard">
-                  <h3 className="text-h4 mb-2">Program Launch</h3>
+                  <h3 className="text-h4 mb-2">Global Platform Kickoff</h3>
                   <p className="text-body text-[oklch(0.4_0.02_240)]">
-                    Orkestra Ventures launches with first cohort of 100
-                    professionals. Strategic partnerships established with
-                    government entities, universities, and corporations.
+                    Orkestra Ventures launches in Egypt with inaugural cohort of 100 AI professionals. Strategic partnerships established across government, academia, and industry in Egypt and UAE. Program infrastructure deployed for global scalability.
                   </p>
                 </div>
               </div>
@@ -346,15 +344,13 @@ export default function About() {
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-32">
                   <div className="text-h3 font-bold text-[oklch(0.7_0.15_70)] font-data">
-                    2026
+                    2027
                   </div>
                 </div>
                 <div className="flex-1 card-standard">
-                  <h3 className="text-h4 mb-2">Scale & Expand</h3>
+                  <h3 className="text-h4 mb-2">Regional Expansion</h3>
                   <p className="text-body text-[oklch(0.4_0.02_240)]">
-                    Expand to multiple cohorts per year. Launch advanced
-                    specialization tracks. Establish alumni network and ongoing
-                    learning programs.
+                    Scale to multiple cohorts annually across Egypt and UAE. Launch advanced specialization tracks and executive AI programs. Establish alumni network spanning MENA region with placement partnerships across GCC markets.
                   </p>
                 </div>
               </div>
@@ -362,15 +358,13 @@ export default function About() {
               <div className="flex gap-6">
                 <div className="flex-shrink-0 w-32">
                   <div className="text-h3 font-bold text-[oklch(0.65_0.12_180)] font-data">
-                    2027+
+                    2028+
                   </div>
                 </div>
                 <div className="flex-1 card-standard">
-                  <h3 className="text-h4 mb-2">Regional Leadership</h3>
+                  <h3 className="text-h4 mb-2">Global AI Talent Hub</h3>
                   <p className="text-body text-[oklch(0.4_0.02_240)]">
-                    Establish Egypt as recognized AI talent hub. Expand program
-                    to other MENA markets. Launch venture fund to support
-                    graduate startups.
+                    Establish MENA as a recognized global AI talent hub. Expand to additional international markets. Launch venture fund and innovation lab to support graduate startups. Create sustainable ecosystem connecting talent, capital, and opportunity worldwide.
                   </p>
                 </div>
               </div>

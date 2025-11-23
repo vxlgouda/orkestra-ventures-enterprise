@@ -76,11 +76,16 @@ export default function Contact() {
                     <MapPin className="h-6 w-6 text-[oklch(0.55_0.18_260)]" />
                   </div>
                   <div>
-                    <h3 className="text-h4 mb-2">Office Location</h3>
-                    <p className="text-body text-[oklch(0.4_0.02_240)]">
-                      Smart Village
+                    <h3 className="text-h4 mb-2">Office Locations</h3>
+                    <p className="text-body text-[oklch(0.4_0.02_240)] mb-3">
+                      <strong>Egypt Office</strong>
                       <br />
-                      Cairo, Egypt
+                      Smart Village, Cairo, Egypt
+                    </p>
+                    <p className="text-body text-[oklch(0.4_0.02_240)]">
+                      <strong>UAE Office</strong>
+                      <br />
+                      ADGM, Abu Dhabi, UAE
                     </p>
                   </div>
                 </div>
@@ -106,12 +111,24 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-h4 mb-2">Phone</h3>
-                    <a
-                      href="tel:+20123456789"
-                      className="text-body text-[oklch(0.55_0.18_260)] hover:underline"
-                    >
-                      +201114156734
-                    </a>
+                    <p className="text-body text-[oklch(0.4_0.02_240)] mb-2">
+                      <a
+                        href="tel:+201114156734"
+                        className="text-[oklch(0.55_0.18_260)] hover:underline"
+                      >
+                        +20 111 415 6734
+                      </a>
+                      {" "}<span className="text-body-small">(Egypt)</span>
+                    </p>
+                    <p className="text-body text-[oklch(0.4_0.02_240)]">
+                      <a
+                        href="tel:+971569960853"
+                        className="text-[oklch(0.55_0.18_260)] hover:underline"
+                      >
+                        +971 56 996 0853
+                      </a>
+                      {" "}<span className="text-body-small">(UAE)</span>
+                    </p>
                   </div>
                 </div>
 
