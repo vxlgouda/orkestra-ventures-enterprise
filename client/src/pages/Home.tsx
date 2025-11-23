@@ -26,12 +26,12 @@ export default function Home() {
               <span className="badge-accent">AI Venture Studio</span>
             </div>
             <h1 className="text-display mb-6">
-              <div>Launch Your Global AI Career</div>
-              <div className="text-[oklch(0.2_0.02_240)]">From</div>
-              <div className="inline-block relative overflow-hidden" style={{ minWidth: '480px', height: '1.2em', perspective: '1000px' }}>
+              <div className="leading-tight">Launch Your Global AI Career</div>
+              <div className="text-[oklch(0.2_0.02_240)] leading-tight">From</div>
+              <div className="inline-block relative overflow-hidden" style={{ width: '100%', maxWidth: '480px', minWidth: '200px', height: '1.2em', perspective: '1000px' }}>
                 <span 
                   key={currentLocation}
-                  className="text-gradient absolute left-0 top-0 w-full animate-flip-word"
+                  className="text-gradient absolute left-0 top-0 w-full animate-flip-word text-center"
                   style={{ transformStyle: 'preserve-3d' }}
                 >
                   {locations[currentLocation]}
