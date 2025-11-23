@@ -1,8 +1,18 @@
-import { ArrowRight, Users, Target, Rocket, Award, TrendingUp, Globe, CheckCircle } from "lucide-react";
+import { CheckCircle, Award, Users, Briefcase, TrendingUp, Globe, Target, Rocket, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import NewsletterPopup from "../components/NewsletterPopup";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const locations = ["Egypt", "The UAE", "Saudi Arabia", "Pakistan", "India", "Anywhere on Earth"];
+  const [currentLocation, setCurrentLocation] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentLocation((prev) => (prev + 1) % locations.length);
+    }, 2500); // Change every 2.5 seconds
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -17,7 +27,17 @@ export default function Home() {
             </div>
             <h1 className="text-display mb-6">
               Launch Your Global AI Career{" "}
-              <span className="text-gradient">from Egypt</span>
+              <span className="text-gradient inline-block min-w-[300px] text-left">
+                <span 
+                  key={currentLocation}
+                  className="inline-block animate-fade-in-up"
+                  style={{
+                    animation: 'fadeInUp 0.6s ease-out'
+                  }}
+                >
+                  from {locations[currentLocation]}
+                </span>
+              </span>
             </h1>
             <p className="text-body-large text-[oklch(0.4_0.02_240)] mb-10 max-w-3xl mx-auto">
               Orkestra Ventures is a 16-week intensive AI training program that
