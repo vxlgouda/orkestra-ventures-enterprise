@@ -44,6 +44,25 @@ export default function Mentors() {
         </div>
       </section>
 
+      {/* Disclaimer */}
+      <section className="py-6 bg-[oklch(0.96_0.005_240)] border-y border-[oklch(0.9_0.005_240)]">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+              Mentor network access provided and managed by{" "}
+              <a 
+                href="https://www.globalinnovationdojo.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[oklch(0.55_0.18_260)] hover:text-[oklch(0.45_0.18_260)] font-semibold underline"
+              >
+                Global Innovation Dojo
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="section-padding-sm">
         <div className="container">
