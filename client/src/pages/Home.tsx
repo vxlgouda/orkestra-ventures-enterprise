@@ -127,12 +127,12 @@ export default function Home() {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-h1 mb-6">Choose Your Track</h2>
             <p className="text-body-large text-[oklch(0.4_0.02_240)]">
-              Two specialized tracks designed to launch your AI career, whether
-              you're technical or business-focused.
+              Three specialized tracks designed to launch your AI career, whether
+              you're technical, business-focused, or a decision maker.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {/* Technical Track */}
             <div className="card-elevated">
               <div className="mb-6">
@@ -211,6 +211,46 @@ export default function Home() {
                 </li>
               </ul>
               <Link href="/programs#business" className="btn-tertiary">
+                Learn More <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            {/* AI for Decision Makers Track */}
+            <div className="card-elevated">
+              <div className="mb-6">
+                <span className="badge-accent">Executive Track</span>
+              </div>
+              <h3 className="text-h2 mb-4">AI for Decision Makers</h3>
+              <p className="text-body text-[oklch(0.4_0.02_240)] mb-6">
+                Strategic AI leadership for executives. Drive organizational AI transformation and make informed technology decisions.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.55_0.18_260)] flex-shrink-0 mt-0.5" />
+                  <span className="text-body">
+                    AI Strategy & Digital Transformation
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.55_0.18_260)] flex-shrink-0 mt-0.5" />
+                  <span className="text-body">
+                    AI Governance & Risk Management
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.55_0.18_260)] flex-shrink-0 mt-0.5" />
+                  <span className="text-body">
+                    AI Investment & ROI Assessment
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-[oklch(0.55_0.18_260)] flex-shrink-0 mt-0.5" />
+                  <span className="text-body">
+                    Leading AI-Driven Organizations
+                  </span>
+                </li>
+              </ul>
+              <Link href="/programs#decision-makers" className="btn-tertiary">
                 Learn More <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -362,7 +402,7 @@ export default function Home() {
                 Join leading Egyptian tech companies and fast-growing startups in Cairo's thriving AI hub
               </p>
               <div className="text-body-small font-semibold text-[oklch(0.55_0.18_260)] font-data">
-                250K+ EGP Packages
+                40K+ EGP Monthly
               </div>
             </div>
 
@@ -375,7 +415,7 @@ export default function Home() {
                 Access premium opportunities in Dubai, Abu Dhabi, and across the Gulf region
               </p>
               <div className="text-body-small font-semibold text-[oklch(0.7_0.15_70)] font-data">
-                25K+ AED Monthly
+                30K+ AED Monthly
               </div>
             </div>
 
@@ -388,7 +428,7 @@ export default function Home() {
                 Work remotely for Fortune 500 companies and global tech giants from anywhere
               </p>
               <div className="text-body-small font-semibold text-[oklch(0.65_0.12_180)] font-data">
-                $60K-120K+ USD Annually
+                15K+ USD Monthly
               </div>
             </div>
 

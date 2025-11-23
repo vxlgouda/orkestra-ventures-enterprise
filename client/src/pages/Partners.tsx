@@ -210,7 +210,7 @@ export default function Partners() {
                   <span>Access to alumni network</span>
                 </li>
               </ul>
-              <Link href="/contact" className="btn-secondary w-full text-center mt-auto">
+              <Link href="/contact" className="btn-primary w-full text-center mt-auto">
                 Get Started
               </Link>
             </div>
@@ -302,7 +302,7 @@ export default function Partners() {
                   <span>Custom R&D collaboration</span>
                 </li>
               </ul>
-              <Link href="/contact" className="btn-primary w-full text-center mt-auto">
+              <Link href="/contact" className="btn-secondary w-full text-center mt-auto">
                 Contact Us
               </Link>
             </div>
