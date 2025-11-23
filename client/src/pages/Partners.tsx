@@ -171,8 +171,96 @@ export default function Partners() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Silver - $50K */}
+            <div className="card-elevated flex flex-col">
+              <div className="text-center mb-6">
+                <div className="inline-block px-4 py-2 rounded-full bg-[oklch(0.65_0.12_180_/_0.1)] text-[oklch(0.65_0.12_180)] font-semibold text-sm mb-4">
+                  SILVER
+                </div>
+                <div className="text-4xl font-bold text-[oklch(0.2_0.05_240)] mb-2 font-data">
+                  $50K
+                </div>
+                <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                  per year
+                </p>
+              </div>
+              <ul className="space-y-3 mb-8 flex-grow">
+                <li className="flex items-start gap-2 text-body">
+                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
+                  <span>Premium logo placement on website</span>
+                </li>
+                <li className="flex items-start gap-2 text-body">
+                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
+                  <span>Hiring event access (2 events/year)</span>
+                </li>
+                <li className="flex items-start gap-2 text-body">
+                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
+                  <span>Mentorship opportunities (5 sessions)</span>
+                </li>
+                <li className="flex items-start gap-2 text-body">
+                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
+                  <span>Featured in quarterly newsletter</span>
+                </li>
+                <li className="flex items-start gap-2 text-body">
+                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
+                  <span>Social media recognition campaign</span>
+                </li>
+                <li className="flex items-start gap-2 text-body">
+                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
+                  <span>Access to alumni network</span>
+                </li>
+              </ul>
+              <Link href="/contact" className="btn-secondary w-full text-center mt-auto">
+                Get Started
+              </Link>
+            </div>
+
+            {/* Gold - $100K */}
+            <div className="card-elevated border-2 border-[oklch(0.7_0.15_70)] flex flex-col">
+              <div className="text-center mb-6">
+                <div className="inline-block px-4 py-2 rounded-full bg-[oklch(0.7_0.15_70_/_0.1)] text-[oklch(0.7_0.15_70)] font-semibold text-sm mb-4">
+                  GOLD
+                </div>
+                <div className="text-4xl font-bold text-[oklch(0.2_0.05_240)] mb-2 font-data">
+                  $100K
+                </div>
+                <p className="text-body-small text-[oklch(0.4_0.02_240)]">
+                  per year
+                </p>
+              </div>
+              <ul className="space-y-3 mb-8 flex-grow">
+                <li className="flex items-start gap-2 text-body">
+                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
+                  <span>All Silver benefits plus</span>
+                </li>
+                <li className="flex items-start gap-2 text-body">
+                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
+                  <span>Priority hiring access (top 10%)</span>
+                </li>
+                <li className="flex items-start gap-2 text-body">
+                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
+                  <span>Capstone project sponsorship (2 projects)</span>
+                </li>
+                <li className="flex items-start gap-2 text-body">
+                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
+                  <span>Keynote speaking opportunities</span>
+                </li>
+                <li className="flex items-start gap-2 text-body">
+                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
+                  <span>Custom training workshops (10 seats)</span>
+                </li>
+                <li className="flex items-start gap-2 text-body">
+                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
+                  <span>Quarterly talent pipeline reports</span>
+                </li>
+              </ul>
+              <Link href="/contact" className="btn-primary w-full text-center mt-auto">
+                Get Started
+              </Link>
+            </div>
+
             {/* Platinum - Custom */}
-            <div className="card-elevated border-2 border-[oklch(0.55_0.18_260)]">
+            <div className="card-elevated border-2 border-[oklch(0.55_0.18_260)] flex flex-col">
               <div className="text-center mb-6">
                 <div className="inline-block px-4 py-2 rounded-full bg-[oklch(0.55_0.18_260_/_0.1)] text-[oklch(0.55_0.18_260)] font-semibold text-sm mb-4">
                   PLATINUM
@@ -184,7 +272,7 @@ export default function Partners() {
                   Strategic Partnership
                 </p>
               </div>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-8 flex-grow">
                 <li className="flex items-start gap-2 text-body">
                   <span className="text-[oklch(0.65_0.12_180)]">✓</span>
                   <span>All Gold benefits plus</span>
@@ -214,96 +302,8 @@ export default function Partners() {
                   <span>Custom R&D collaboration</span>
                 </li>
               </ul>
-              <Link href="/contact" className="btn-primary w-full text-center">
+              <Link href="/contact" className="btn-primary w-full text-center mt-auto">
                 Contact Us
-              </Link>
-            </div>
-
-            {/* Gold - $100K */}
-            <div className="card-elevated border-2 border-[oklch(0.7_0.15_70)]">
-              <div className="text-center mb-6">
-                <div className="inline-block px-4 py-2 rounded-full bg-[oklch(0.7_0.15_70_/_0.1)] text-[oklch(0.7_0.15_70)] font-semibold text-sm mb-4">
-                  GOLD
-                </div>
-                <div className="text-4xl font-bold text-[oklch(0.2_0.05_240)] mb-2 font-data">
-                  $100K
-                </div>
-                <p className="text-body-small text-[oklch(0.4_0.02_240)]">
-                  per year
-                </p>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-2 text-body">
-                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
-                  <span>All Silver benefits plus</span>
-                </li>
-                <li className="flex items-start gap-2 text-body">
-                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
-                  <span>Priority hiring access (top 10%)</span>
-                </li>
-                <li className="flex items-start gap-2 text-body">
-                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
-                  <span>Capstone project sponsorship (2 projects)</span>
-                </li>
-                <li className="flex items-start gap-2 text-body">
-                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
-                  <span>Keynote speaking opportunities</span>
-                </li>
-                <li className="flex items-start gap-2 text-body">
-                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
-                  <span>Custom training workshops (10 seats)</span>
-                </li>
-                <li className="flex items-start gap-2 text-body">
-                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
-                  <span>Quarterly talent pipeline reports</span>
-                </li>
-              </ul>
-              <Link href="/contact" className="btn-primary w-full text-center">
-                Get Started
-              </Link>
-            </div>
-
-            {/* Silver - $50K */}
-            <div className="card-elevated">
-              <div className="text-center mb-6">
-                <div className="inline-block px-4 py-2 rounded-full bg-[oklch(0.65_0.12_180_/_0.1)] text-[oklch(0.65_0.12_180)] font-semibold text-sm mb-4">
-                  SILVER
-                </div>
-                <div className="text-4xl font-bold text-[oklch(0.2_0.05_240)] mb-2 font-data">
-                  $50K
-                </div>
-                <p className="text-body-small text-[oklch(0.4_0.02_240)]">
-                  per year
-                </p>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-2 text-body">
-                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
-                  <span>Premium logo placement on website</span>
-                </li>
-                <li className="flex items-start gap-2 text-body">
-                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
-                  <span>Hiring event access (2 events/year)</span>
-                </li>
-                <li className="flex items-start gap-2 text-body">
-                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
-                  <span>Mentorship opportunities (5 sessions)</span>
-                </li>
-                <li className="flex items-start gap-2 text-body">
-                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
-                  <span>Featured in quarterly newsletter</span>
-                </li>
-                <li className="flex items-start gap-2 text-body">
-                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
-                  <span>Social media recognition campaign</span>
-                </li>
-                <li className="flex items-start gap-2 text-body">
-                  <span className="text-[oklch(0.65_0.12_180)]">✓</span>
-                  <span>Access to alumni network</span>
-                </li>
-              </ul>
-              <Link href="/contact" className="btn-secondary w-full text-center">
-                Get Started
               </Link>
             </div>
           </div>

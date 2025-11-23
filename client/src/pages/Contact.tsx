@@ -147,15 +147,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="card-standard">
-                <div className="aspect-video bg-[oklch(0.96_0.005_240)] rounded-lg flex items-center justify-center">
-                  <MapPin className="h-12 w-12 text-[oklch(0.4_0.02_240)]" />
-                </div>
-                <p className="text-body-small text-[oklch(0.4_0.02_240)] mt-4 text-center">
-                  Smart Village, Cairo, Egypt
-                </p>
-              </div>
+
             </div>
 
             {/* Contact Form */}

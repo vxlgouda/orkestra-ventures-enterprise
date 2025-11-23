@@ -362,7 +362,7 @@ export default function Home() {
                 Join leading Egyptian tech companies and fast-growing startups in Cairo's thriving AI hub
               </p>
               <div className="text-body-small font-semibold text-[oklch(0.55_0.18_260)] font-data">
-                Competitive Local Packages
+                250K+ EGP Packages
               </div>
             </div>
 
@@ -375,7 +375,7 @@ export default function Home() {
                 Access premium opportunities in Dubai, Abu Dhabi, and across the Gulf region
               </p>
               <div className="text-body-small font-semibold text-[oklch(0.7_0.15_70)] font-data">
-                Regional Leadership Roles
+                25K+ AED Monthly
               </div>
             </div>
 
@@ -388,7 +388,7 @@ export default function Home() {
                 Work remotely for Fortune 500 companies and global tech giants from anywhere
               </p>
               <div className="text-body-small font-semibold text-[oklch(0.65_0.12_180)] font-data">
-                Global Compensation Standards
+                $60K-120K+ USD Annually
               </div>
             </div>
 
