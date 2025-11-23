@@ -28,11 +28,12 @@ export default function Home() {
             <h1 className="text-display mb-6">
               Launch Your Global AI Career{" "}
               <span className="inline-block">
-                from{" "}
-                <span className="text-gradient inline-block min-w-[200px] text-left relative" style={{ height: '1.2em', verticalAlign: 'baseline' }}>
+                <span className="text-[oklch(0.2_0.02_240)]">From</span>{" "}
+                <span className="inline-block relative overflow-hidden" style={{ minWidth: '280px', height: '1.2em', display: 'inline-block', perspective: '1000px' }}>
                   <span 
                     key={currentLocation}
-                    className="inline-block absolute left-0 animate-rotate-word"
+                    className="text-gradient absolute left-0 top-0 w-full animate-flip-word"
+                    style={{ transformStyle: 'preserve-3d' }}
                   >
                     {locations[currentLocation]}
                   </span>
@@ -56,32 +57,32 @@ export default function Home() {
 
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-              <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-[oklch(0.55_0.18_260)] mb-2 font-data">
+              <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+                <div className="text-4xl lg:text-5xl font-bold text-[oklch(0.55_0.18_260)] mb-2 font-data animate-scale-in">
                   100
                 </div>
                 <div className="text-body-small text-[oklch(0.4_0.02_240)]">
                   Professionals
                 </div>
               </div>
-              <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-[oklch(0.7_0.15_70)] mb-2 font-data">
+              <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                <div className="text-4xl lg:text-5xl font-bold text-[oklch(0.7_0.15_70)] mb-2 font-data animate-scale-in" style={{ animationDelay: '0.2s' }}>
                   20+
                 </div>
                 <div className="text-body-small text-[oklch(0.4_0.02_240)]">
                   Expert Mentors
                 </div>
               </div>
-              <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-[oklch(0.65_0.12_180)] mb-2 font-data">
+              <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                <div className="text-4xl lg:text-5xl font-bold text-[oklch(0.65_0.12_180)] mb-2 font-data animate-scale-in" style={{ animationDelay: '0.3s' }}>
                   5+
                 </div>
                 <div className="text-body-small text-[oklch(0.4_0.02_240)]">
                   Strategic Partners
                 </div>
               </div>
-              <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-[oklch(0.55_0.18_260)] mb-2 font-data">
+              <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                <div className="text-4xl lg:text-5xl font-bold text-[oklch(0.55_0.18_260)] mb-2 font-data animate-scale-in" style={{ animationDelay: '0.4s' }}>
                   16
                 </div>
                 <div className="text-body-small text-[oklch(0.4_0.02_240)]">
@@ -413,54 +414,54 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="card-standard text-center">
+            <div className="card-standard text-center flex flex-col">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[oklch(0.55_0.18_260_/_0.1)] flex items-center justify-center">
                 <Globe className="h-8 w-8 text-[oklch(0.55_0.18_260)]" />
               </div>
               <h3 className="text-h4 mb-3">Egypt Tech Ecosystem</h3>
-              <p className="text-body-small text-[oklch(0.4_0.02_240)] mb-3">
+              <p className="text-body-small text-[oklch(0.4_0.02_240)]" style={{ minHeight: '60px' }}>
                 Join leading Egyptian tech companies and fast-growing startups in Cairo's thriving AI hub
               </p>
-              <div className="text-body-small font-semibold text-[oklch(0.55_0.18_260)] font-data">
+              <div className="text-body-small font-semibold text-[oklch(0.55_0.18_260)] font-data mt-auto pt-3">
                 40K+ EGP Monthly
               </div>
             </div>
 
-            <div className="card-standard text-center">
+            <div className="card-standard text-center flex flex-col">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[oklch(0.7_0.15_70_/_0.1)] flex items-center justify-center">
                 <Target className="h-8 w-8 text-[oklch(0.7_0.15_70)]" />
               </div>
               <h3 className="text-h4 mb-3">UAE & GCC Markets</h3>
-              <p className="text-body-small text-[oklch(0.4_0.02_240)] mb-3">
+              <p className="text-body-small text-[oklch(0.4_0.02_240)]" style={{ minHeight: '60px' }}>
                 Access premium opportunities in Dubai, Abu Dhabi, and across the Gulf region
               </p>
-              <div className="text-body-small font-semibold text-[oklch(0.7_0.15_70)] font-data">
+              <div className="text-body-small font-semibold text-[oklch(0.7_0.15_70)] font-data mt-auto pt-3">
                 30K+ AED Monthly
               </div>
             </div>
 
-            <div className="card-standard text-center">
+            <div className="card-standard text-center flex flex-col">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[oklch(0.65_0.12_180_/_0.1)] flex items-center justify-center">
                 <Users className="h-8 w-8 text-[oklch(0.65_0.12_180)]" />
               </div>
               <h3 className="text-h4 mb-3">International Remote</h3>
-              <p className="text-body-small text-[oklch(0.4_0.02_240)] mb-3">
+              <p className="text-body-small text-[oklch(0.4_0.02_240)]" style={{ minHeight: '60px' }}>
                 Work remotely for Fortune 500 companies and global tech giants from anywhere
               </p>
-              <div className="text-body-small font-semibold text-[oklch(0.65_0.12_180)] font-data">
+              <div className="text-body-small font-semibold text-[oklch(0.65_0.12_180)] font-data mt-auto pt-3">
                 15K+ USD Monthly
               </div>
             </div>
 
-            <div className="card-standard text-center">
+            <div className="card-standard text-center flex flex-col">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[oklch(0.55_0.18_260_/_0.1)] flex items-center justify-center">
                 <Rocket className="h-8 w-8 text-[oklch(0.55_0.18_260)]" />
               </div>
               <h3 className="text-h4 mb-3">Entrepreneurship</h3>
-              <p className="text-body-small text-[oklch(0.4_0.02_240)] mb-3">
+              <p className="text-body-small text-[oklch(0.4_0.02_240)]" style={{ minHeight: '60px' }}>
                 Launch your AI startup with seed funding, mentorship, and global market access
               </p>
-              <div className="text-body-small font-semibold text-[oklch(0.55_0.18_260)] font-data">
+              <div className="text-body-small font-semibold text-[oklch(0.55_0.18_260)] font-data mt-auto pt-3">
                 Venture Support & Capital
               </div>
             </div>
