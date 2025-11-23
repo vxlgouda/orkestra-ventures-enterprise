@@ -4,7 +4,7 @@ import NewsletterPopup from "../components/NewsletterPopup";
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  const locations = ["Egypt", "The UAE", "Saudi Arabia", "Pakistan", "India", "Anywhere on Earth"];
+  const locations = ["Egypt", "The UAE", "Saudi Arabia", "Pakistan", "India", "Anywhere"];
   const [currentLocation, setCurrentLocation] = useState(0);
 
   useEffect(() => {
@@ -26,19 +26,17 @@ export default function Home() {
               <span className="badge-accent">AI Venture Studio</span>
             </div>
             <h1 className="text-display mb-6">
-              Launch Your Global AI Career{" "}
-              <span className="inline-block">
-                <span className="text-[oklch(0.2_0.02_240)]">From</span>{" "}
-                <span className="inline-block relative overflow-hidden" style={{ minWidth: '480px', height: '1.2em', display: 'inline-block', perspective: '1000px' }}>
-                  <span 
-                    key={currentLocation}
-                    className="text-gradient absolute left-0 top-0 w-full animate-flip-word"
-                    style={{ transformStyle: 'preserve-3d' }}
-                  >
-                    {locations[currentLocation]}
-                  </span>
+              <div>Launch Your Global AI Career</div>
+              <div className="text-[oklch(0.2_0.02_240)]">From</div>
+              <div className="inline-block relative overflow-hidden" style={{ minWidth: '480px', height: '1.2em', perspective: '1000px' }}>
+                <span 
+                  key={currentLocation}
+                  className="text-gradient absolute left-0 top-0 w-full animate-flip-word"
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
+                  {locations[currentLocation]}
                 </span>
-              </span>
+              </div>
             </h1>
             <p className="text-body-large text-[oklch(0.4_0.02_240)] mb-10 max-w-3xl mx-auto">
               Orkestra Ventures is a 16-week intensive AI training program that
