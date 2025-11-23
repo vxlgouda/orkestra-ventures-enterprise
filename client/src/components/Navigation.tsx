@@ -40,7 +40,7 @@ export default function Navigation() {
             <img
               src="/logo-icon.png"
               alt="Orkestra Ventures"
-              className="h-10 w-10 transition-transform duration-200 group-hover:scale-105"
+              className="h-12 w-12 transition-transform duration-200 group-hover:scale-105"
             />
             <span className="text-xl font-bold text-[oklch(0.2_0.05_240)]">
               Orkestra Ventures

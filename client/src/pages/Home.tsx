@@ -29,7 +29,7 @@ export default function Home() {
               Launch Your Global AI Career{" "}
               <span className="inline-block">
                 <span className="text-[oklch(0.2_0.02_240)]">From</span>{" "}
-                <span className="inline-block relative overflow-hidden" style={{ minWidth: '280px', height: '1.2em', display: 'inline-block', perspective: '1000px' }}>
+                <span className="inline-block relative overflow-hidden" style={{ minWidth: '480px', height: '1.2em', display: 'inline-block', perspective: '1000px' }}>
                   <span 
                     key={currentLocation}
                     className="text-gradient absolute left-0 top-0 w-full animate-flip-word"
